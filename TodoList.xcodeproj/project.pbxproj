@@ -55,6 +55,10 @@
 		2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */; };
 		2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3524D71A8800E27522 /* AppCoordinator.swift */; };
 		2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */; };
+		2D47FD4025140E88008BB087 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD3F25140E88008BB087 /* RxSwift */; };
+		2D47FD4225140E88008BB087 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4125140E88008BB087 /* RxRelay */; };
+		2D47FD4425140E88008BB087 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4325140E88008BB087 /* RxCocoa */; };
+		2D47FD4625140E88008BB087 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4525140E88008BB087 /* RxBlocking */; };
 		2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */; };
 		2D48790B2505538500E5DFB0 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */; };
 		2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */; };
@@ -370,10 +374,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47FD4025140E88008BB087 /* RxSwift in Frameworks */,
+				2D47FD4625140E88008BB087 /* RxBlocking in Frameworks */,
 				2DC445EE24FDC683009E5396 /* GoogleSignIn.bundle in Frameworks */,
+				2D47FD4225140E88008BB087 /* RxRelay in Frameworks */,
 				2DC445EC24FDC677009E5396 /* GoogleSignInDependencies.framework in Frameworks */,
 				2D507C29249B64C1005B0048 /* Realm in Frameworks */,
 				2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */,
+				2D47FD4425140E88008BB087 /* RxCocoa in Frameworks */,
 				2DC445ED24FDC677009E5396 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1321,6 +1329,10 @@
 			packageProductDependencies = (
 				2D507C26249B64C1005B0048 /* RealmSwift */,
 				2D507C28249B64C1005B0048 /* Realm */,
+				2D47FD3F25140E88008BB087 /* RxSwift */,
+				2D47FD4125140E88008BB087 /* RxRelay */,
+				2D47FD4325140E88008BB087 /* RxCocoa */,
+				2D47FD4525140E88008BB087 /* RxBlocking */,
 			);
 			productName = TodoList;
 			productReference = 049FB51F2480157E000A7133 /* TodoList.app */;
@@ -1374,6 +1386,7 @@
 			mainGroup = 049FB5162480157E000A7133;
 			packageReferences = (
 				2D507C25249B64C1005B0048 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 049FB5202480157E000A7133 /* Products */;
 			projectDirPath = "";
@@ -1846,6 +1859,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 		2D507C25249B64C1005B0048 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -1857,6 +1878,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2D47FD3F25140E88008BB087 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		2D47FD4125140E88008BB087 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		2D47FD4325140E88008BB087 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		2D47FD4525140E88008BB087 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D47FD3E25140E88008BB087 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
 		2D507C26249B64C1005B0048 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D507C25249B64C1005B0048 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
