@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Task List View Controller-->
+        <scene sceneID="x2a-kr-lSu">
+            <objects>
+                <viewController storyboardIdentifier="TaskListViewController" hidesBottomBarWhenPushed="YES" id="lHq-PW-VlG" customClass="TaskListViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nax-jS-8bl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C92-wF-Xff">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="BF8-HR-pxQ" customClass="TaskCell" customModule="TodoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="62.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BF8-HR-pxQ" id="aJ5-PB-gsG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRt-bc-G5b">
+                                                    <rect key="frame" x="0.0" y="11.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="hyV-nU-5zP"/>
+                                                        <constraint firstAttribute="width" constant="40" id="pxv-TF-GoC"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="checkmark.circle.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="checkButtonPressed:" destination="BF8-HR-pxQ" eventType="touchUpInside" id="s1Q-Cp-S2B"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-22-wWo">
+                                                    <rect key="frame" x="277" y="21" width="81" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="Fq0-9w-uml"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-cT-rKS">
+                                                    <rect key="frame" x="48" y="15" width="221" height="32.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Ccu-fZ-GAL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cke-rm-E17">
+                                                    <rect key="frame" x="366" y="11.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="QQu-yd-ggq"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wxh-6E-1lb"/>
+                                                    </constraints>
+                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="star" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="importantButtonPressed:" destination="BF8-HR-pxQ" eventType="touchUpInside" id="V8r-Tx-vJc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WRt-bc-G5b" firstAttribute="centerY" secondItem="aJ5-PB-gsG" secondAttribute="centerY" id="471-RX-i3z"/>
+                                                <constraint firstItem="cke-rm-E17" firstAttribute="leading" secondItem="lz7-22-wWo" secondAttribute="trailing" constant="8" id="GKZ-yp-drQ"/>
+                                                <constraint firstItem="lz7-22-wWo" firstAttribute="centerY" secondItem="1Pb-cT-rKS" secondAttribute="centerY" id="GSU-Bd-gfX"/>
+                                                <constraint firstItem="1Pb-cT-rKS" firstAttribute="top" secondItem="aJ5-PB-gsG" secondAttribute="topMargin" constant="4" id="JbD-fu-6O4"/>
+                                                <constraint firstItem="1Pb-cT-rKS" firstAttribute="leading" secondItem="WRt-bc-G5b" secondAttribute="trailing" constant="8" id="SCA-bH-6hN"/>
+                                                <constraint firstItem="cke-rm-E17" firstAttribute="centerY" secondItem="aJ5-PB-gsG" secondAttribute="centerY" id="Wma-l2-ATe"/>
+                                                <constraint firstItem="WRt-bc-G5b" firstAttribute="leading" secondItem="aJ5-PB-gsG" secondAttribute="leading" id="bJo-4y-6ff"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1Pb-cT-rKS" secondAttribute="bottom" constant="4" id="jGt-WY-db3"/>
+                                                <constraint firstAttribute="trailing" secondItem="cke-rm-E17" secondAttribute="trailing" constant="8" id="onF-S2-PCt"/>
+                                                <constraint firstItem="lz7-22-wWo" firstAttribute="leading" secondItem="1Pb-cT-rKS" secondAttribute="trailing" constant="8" id="soo-Ae-hwr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkButton" destination="WRt-bc-G5b" id="3C0-jT-Vmh"/>
+                                            <outlet property="dateLabel" destination="lz7-22-wWo" id="7l5-9K-lUM"/>
+                                            <outlet property="descriptionLabel" destination="1Pb-cT-rKS" id="aIm-Ls-ozx"/>
+                                            <outlet property="importantButton" destination="cke-rm-E17" id="k6e-p7-FcV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-SH-1bi" customClass="AddButton" customModule="TodoList" customModuleProvider="target">
+                                <rect key="frame" x="314" y="796" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="eRy-Wv-cat"/>
+                                    <constraint firstAttribute="height" constant="60" id="qkW-re-rdO"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="lHq-PW-VlG" eventType="touchUpInside" id="E0Z-0L-gSu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="bottom" secondItem="C92-wF-Xff" secondAttribute="bottom" id="FhG-bF-6q0"/>
+                            <constraint firstItem="C92-wF-Xff" firstAttribute="leading" secondItem="HmM-Uy-hBe" secondAttribute="leading" id="GUB-ft-cV5"/>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="jlp-SH-1bi" secondAttribute="trailing" constant="40" id="YHB-mz-Tb8"/>
+                            <constraint firstItem="C92-wF-Xff" firstAttribute="top" secondItem="HmM-Uy-hBe" secondAttribute="top" id="eso-hs-pd6"/>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="C92-wF-Xff" secondAttribute="trailing" id="hgH-GC-mye"/>
+                            <constraint firstAttribute="bottom" secondItem="jlp-SH-1bi" secondAttribute="bottom" constant="40" id="klI-un-Rgq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HmM-Uy-hBe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n12-Rv-iBu"/>
+                    <connections>
+                        <outlet property="tableView" destination="C92-wF-Xff" id="LOY-CD-VBY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCg-gW-ASa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2942.0289855072465" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>

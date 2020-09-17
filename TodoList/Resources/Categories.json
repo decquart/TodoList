@@ -1,0 +1,23 @@
+[
+	{
+		"id": "883438A6-0260-40BA-83A2-E3F817F87F5B",
+		"name": "ToDo",
+		"imagePath": "todo",
+		"colorName": "CustomGreen",
+		"tasksCount": 0
+	},
+	{
+		"id": "07430386-B001-4C28-87E5-710ED8111D91",
+		"name": "Shopping",
+		"imagePath": "shopping",
+		"colorName": "CustomPink",
+		"tasksCount": 0
+	},
+	{
+		"id": "73AC35CE-A6C7-4533-B25E-DBA94E698941",
+		"name": "Work",
+		"imagePath": "work",
+		"colorName": "CustomTeal",
+		"tasksCount": 0
+	}
+]

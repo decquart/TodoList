@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Task Details View Controller-->
+        <scene sceneID="8Lb-nJ-Vuk">
+            <objects>
+                <viewController storyboardIdentifier="TaskDetailsViewController" hidesBottomBarWhenPushed="YES" id="uq8-3b-xvO" customClass="TaskDetailsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rNv-gd-5sX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g., Buy some food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-c8-9Iu">
+                                <rect key="frame" x="20" y="64" width="314" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jut-sm-jj3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="uGZ-W2-QwW">
+                                <rect key="frame" x="0.0" y="144" width="414" height="216"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-eR-hiq">
+                                <rect key="frame" x="354" y="74" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1ya-kB-u2S"/>
+                                    <constraint firstAttribute="width" constant="40" id="sxD-bb-6SW"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.031700934191911889" blue="0.27408440264912692" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="arrow.up.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="uq8-3b-xvO" eventType="touchUpInside" id="HOA-wK-udL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="centerY" secondItem="H8U-c8-9Iu" secondAttribute="centerY" id="21S-MM-ryS"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="trailing" secondItem="2v1-U1-10A" secondAttribute="trailing" id="4LY-98-h4o"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" id="5mP-f0-VmY"/>
+                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" constant="20" id="Ntu-g3-E7R"/>
+                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="20" id="QOi-iJ-Nqd"/>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="leading" secondItem="H8U-c8-9Iu" secondAttribute="trailing" constant="20" id="Ufd-1Z-AE8"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="20" id="bEr-EP-Q4H"/>
+                            <constraint firstItem="2v1-U1-10A" firstAttribute="trailing" secondItem="gvF-eR-hiq" secondAttribute="trailing" constant="20" id="tDM-Og-vCW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2v1-U1-10A"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="uGZ-W2-QwW" id="wu8-WI-A62"/>
+                        <outlet property="sendButton" destination="gvF-eR-hiq" id="Wel-PH-2W1"/>
+                        <outlet property="textField" destination="H8U-c8-9Iu" id="LTg-3f-3T3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7XL-Lq-sYK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153.62318840579712" y="43.526785714285715"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

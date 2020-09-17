@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoryMO" representedClassName="CategoryMO" syncable="YES">
+        <attribute name="colorName" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imagePath" attributeType="String" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="tasks" toMany="YES" deletionRule="Cascade" destinationEntity="TaskMO" inverseName="owner" inverseEntity="TaskMO"/>
+    </entity>
+    <entity name="TaskMO" representedClassName="TaskMO" syncable="YES">
+        <attribute name="completed" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="description_p" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryMO" inverseName="tasks" inverseEntity="CategoryMO"/>
+    </entity>
+    <entity name="UserMO" representedClassName="UserMO" syncable="YES">
+        <attribute name="email" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CategoryMO" positionX="160" positionY="192" width="128" height="118"/>
+        <element name="TaskMO" positionX="0" positionY="63" width="128" height="133"/>
+        <element name="UserMO" positionX="81" positionY="171" width="128" height="88"/>
+    </elements>
+</model>
