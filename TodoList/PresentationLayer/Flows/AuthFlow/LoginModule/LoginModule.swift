@@ -12,19 +12,14 @@ class LoginModule {
 	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
 		let view = LoginViewController.instantiate(storyboard: .login)
 		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-		let interactor = LoginInteractor(repository: repository,
-										 keychain: Keychain(),
-										 userSession: UserSession.default)
+		let viewModel = LoginViewModel(repository: repository, keychain: Keychain(), userSession: UserSession.default)
+		view.viewModel = viewModel
 
-		let presenter = LoginPresenter(view: view, interactor: interactor)
+
 		let googleSignInService = GoogleSignInService.shared
-		googleSignInService.configure(with: view, and: interactor)
+		googleSignInService.configure(with: view, and: viewModel)
 
-		view.presenter = presenter
-		presenter.onFinish = onFinish
-		presenter.onRegister = onRegister
-		interactor.output = presenter
-		interactor.googleSignInService = googleSignInService
+		viewModel.googleSignInService = googleSignInService
 
 		return view
 	}

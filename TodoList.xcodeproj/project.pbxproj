@@ -59,6 +59,7 @@
 		2D47FD4225140E88008BB087 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4125140E88008BB087 /* RxRelay */; };
 		2D47FD4425140E88008BB087 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4325140E88008BB087 /* RxCocoa */; };
 		2D47FD4625140E88008BB087 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 2D47FD4525140E88008BB087 /* RxBlocking */; };
+		2D47FD482514177D008BB087 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47FD472514177D008BB087 /* LoginViewModel.swift */; };
 		2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */; };
 		2D48790B2505538500E5DFB0 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */; };
 		2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */; };
@@ -248,6 +249,7 @@
 		2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC3524D71A8800E27522 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoiesCoordinator.swift; sourceTree = "<group>"; };
+		2D47FD472514177D008BB087 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellModel.swift; sourceTree = "<group>"; };
@@ -789,6 +791,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2D47FD4925141784008BB087 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D47FD472514177D008BB087 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2D48791425058FA000E5DFB0 /* RegularCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1178,6 +1188,7 @@
 				2DA5063224EF1F89003A4180 /* View */,
 				2DA5063924EF20B1003A4180 /* Presenter */,
 				2D88E65224F6E9EF0093C9C6 /* Interactor */,
+				2D47FD4925141784008BB087 /* ViewModel */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1558,6 +1569,7 @@
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
+				2D47FD482514177D008BB087 /* LoginViewModel.swift in Sources */,
 				2D2C737E250D18A60077E418 /* InteractivePresentationController.swift in Sources */,
 				2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,

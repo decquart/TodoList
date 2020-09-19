@@ -8,9 +8,13 @@
 
 import UIKit
 import GoogleSignIn
+import RxSwift
+import RxCocoa
+
 
 class LoginViewController: UIViewController {
-	var presenter: LoginPresenterProtocol!
+	var viewModel: LoginViewModel!
+	let disposeBag = DisposeBag()
 
 	@IBOutlet private weak var loginView: UIView! {
 		didSet {
@@ -32,12 +36,8 @@ class LoginViewController: UIViewController {
 		}
 	}
 
-	@IBOutlet weak var signInButtonWithGoogle: GIDSignInButton! {
-		didSet {
-			signInButtonWithGoogle.style = .iconOnly
-			signInButtonWithGoogle.colorScheme = .light
-		}
-	}
+
+	@IBOutlet weak var signInWithGoogleButton: UIButton!
 
 	@IBOutlet weak var signUpButton: UIButton! {
 		didSet {
@@ -66,6 +66,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
 		view.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.8, y: 0.8)))
+
+		setupBindings()
     }
 
 	override func viewDidLayoutSubviews() {
@@ -75,21 +77,40 @@ class LoginViewController: UIViewController {
 		skipButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
 	}
 
-	@IBAction func loginButtonPressed(_ sender: Any) {
-		presenter.login(with: usernameTextField.text, and: passwordTexrField.text)
+	func setupBindings() {
+		loginButton.rx.tap
+			.bind { [weak self] in self?.viewModel.signInTapped() }
+			.disposed(by: disposeBag)
+
+		signInWithGoogleButton.rx.tap
+			.bind { [weak self] in self?.viewModel.signInWithGoogleTapped() }
+			.disposed(by: disposeBag)
+
+		skipButton.rx.tap
+			.bind { [weak self] in self?.viewModel.skipTapped() }
+			.disposed(by: disposeBag)
+
+		signUpButton.rx.tap
+			.bind { [weak self] in self?.viewModel.signUpTapped() }
+			.disposed(by: disposeBag)
+
+		usernameTextField.rx.text.orEmpty
+			.bind(to: viewModel.username)
+			.disposed(by: disposeBag)
+
+		passwordTexrField.rx.text.orEmpty
+			.bind(to: viewModel.password)
+			.disposed(by: disposeBag)
+
+		viewModel.loginError
+			.subscribe(onNext: { [weak self] in self?.refreshUserNameTextField(with: $0) })
+			.disposed(by: disposeBag)
+
+		viewModel.passwordError
+			.subscribe(onNext: { [weak self] in self?.refreshPasswordTextField(with: $0) })
+			.disposed(by: disposeBag)
 	}
 
-	@IBAction func skipButtonPressed(_ sender: Any) {
-		presenter.skipLogin()
-	}
-
-	@IBAction func signUpButtonPressed(_ sender: Any) {
-		presenter.register()
-	}
-
-	@IBAction func signInWithGoogleButtonPressed(_ sender: Any) {
-		presenter.signInWithGoogle()
-	}
 
 	@objc func removePlaceholderMessage(_ textField: UITextField) {
 		textField.placeholder = nil
