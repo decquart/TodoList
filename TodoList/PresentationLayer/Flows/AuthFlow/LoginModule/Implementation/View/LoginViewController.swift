@@ -121,8 +121,7 @@ class LoginViewController: UIViewController {
 	}
 }
 
-//MARK: - LoginViewProtocol
-extension LoginViewController: LoginViewProtocol {
+extension LoginViewController {
 	func refreshUserNameTextField(with errorMessage: String) {
 		usernameTextField.setErrorMessage(errorMessage)
 	}
