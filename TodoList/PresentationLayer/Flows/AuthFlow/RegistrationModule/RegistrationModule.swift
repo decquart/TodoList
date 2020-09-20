@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import RxSwift
 
 class RegistrationModule {
+	let disposeBag = DisposeBag()
+
 	func build(onBack: (() -> Void)?) -> UIViewController {
 		let view = RegistrationViewController.instantiate(storyboard: .registration)
 		let repo = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-		let interactor = RegistrationInteractor(repository: repo, keychain: Keychain())
-		let presenter = RegistrationPresenter(view: view, interactor: interactor)
-		view.presenter = presenter
-		interactor.output = presenter
-		presenter.onBack = onBack
+		let viewModel = RegistrationViewModel(repository: repo, keychain: Keychain())
+
+		viewModel.onBack
+			.subscribe(onNext: {
+				onBack?()
+			})
+			.disposed(by: disposeBag)
+
+		view.viewModel = viewModel
 		return view
 	}
 }

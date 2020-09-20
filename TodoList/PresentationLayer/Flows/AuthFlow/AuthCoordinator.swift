@@ -12,6 +12,7 @@ final class AuthCoordinator: BaseCoordinator {
 
 	var onFinish: (() -> Void)?
 	private let loginModule = LoginModule()
+	private let registrationModule = RegistrationModule()
 
 	override func start() {
 		showLoginScreen()
@@ -28,7 +29,7 @@ private extension AuthCoordinator {
 	}
 
 	func showRegistrationScreen() {
-		let module = RegistrationModule().build(onBack: router.pop)
+		let module = registrationModule.build(onBack: router.pop)
 		self.router.push(module)
 	}
 }

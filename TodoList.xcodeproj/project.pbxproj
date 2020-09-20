@@ -88,13 +88,8 @@
 		2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */; };
 		2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
-		2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */; };
-		2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */; };
-		2D52190424F9BC65008B7E6F /* RegistrationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190324F9BC65008B7E6F /* RegistrationUseCase.swift */; };
 		2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190524F9BCE8008B7E6F /* RegistrationViewController.swift */; };
 		2D52190A24F9BD44008B7E6F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D52190924F9BD44008B7E6F /* Registration.storyboard */; };
-		2D52190C24F9BD91008B7E6F /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190B24F9BD91008B7E6F /* RegistrationPresenter.swift */; };
-		2D52190F24F9BDE3008B7E6F /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190E24F9BDE3008B7E6F /* RegistrationInteractor.swift */; };
 		2D52191224FA77EB008B7E6F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52191124FA77EB008B7E6F /* SignUpViewModel.swift */; };
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
 		2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55BA2224D971DE0041637B /* UIView+Constraints.swift */; };
@@ -154,6 +149,8 @@
 		2DB74B0924C855030076CE43 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DB74B0824C855030076CE43 /* Categories.json */; };
 		2DB74B0B24CA35190076CE43 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB74B0A24CA35190076CE43 /* Color.swift */; };
 		2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC4C4224D00B0B00C38620 /* Scope.swift */; };
+		2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4D8251794170041407E /* RegistrationViewModel.swift */; };
+		2DBFE4DC2517A2060041407E /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */; };
 		2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC445E124FDB115009E5396 /* GoogleSignInService.swift */; };
 		2DC445EA24FDC677009E5396 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
 		2DC445EB24FDC677009E5396 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E724FDC677009E5396 /* README.md */; };
@@ -270,13 +267,8 @@
 		2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsUseCase.swift; sourceTree = "<group>"; };
 		2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsInteractor.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
-		2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewProtocol.swift; sourceTree = "<group>"; };
-		2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D52190324F9BC65008B7E6F /* RegistrationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUseCase.swift; sourceTree = "<group>"; };
 		2D52190524F9BCE8008B7E6F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2D52190924F9BD44008B7E6F /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
-		2D52190B24F9BD91008B7E6F /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
-		2D52190E24F9BDE3008B7E6F /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
 		2D52191124FA77EB008B7E6F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
@@ -336,6 +328,8 @@
 		2DB74B0824C855030076CE43 /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
 		2DB74B0A24CA35190076CE43 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2DBC4C4224D00B0B00C38620 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
+		2DBFE4D8251794170041407E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		2DC445E124FDB115009E5396 /* GoogleSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInService.swift; sourceTree = "<group>"; };
 		2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		2DC445E724FDC677009E5396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -506,6 +500,7 @@
 				04BCAB7E2498136C00A38846 /* Category.swift */,
 				2D88E65924F82C240093C9C6 /* User.swift */,
 				2D88E67124F85AF90093C9C6 /* Credentials.swift */,
+				2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -896,30 +891,10 @@
 			isa = PBXGroup;
 			children = (
 				2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */,
-				2D52190024F9BC31008B7E6F /* Protocols */,
-				2D52190724F9BD04008B7E6F /* Implementation */,
+				2D52190824F9BD1B008B7E6F /* View */,
+				2DBFE4DA251795200041407E /* ViewModel */,
 			);
 			path = RegistrationModule;
-			sourceTree = "<group>";
-		};
-		2D52190024F9BC31008B7E6F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */,
-				2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */,
-				2D52190324F9BC65008B7E6F /* RegistrationUseCase.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2D52190724F9BD04008B7E6F /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				2D52190824F9BD1B008B7E6F /* View */,
-				2D52190D24F9BDCF008B7E6F /* Presenter */,
-				2D52191024F9BDE9008B7E6F /* Interactor */,
-			);
-			path = Implementation;
 			sourceTree = "<group>";
 		};
 		2D52190824F9BD1B008B7E6F /* View */ = {
@@ -929,22 +904,6 @@
 				2D52190924F9BD44008B7E6F /* Registration.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		2D52190D24F9BDCF008B7E6F /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2D52190B24F9BD91008B7E6F /* RegistrationPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		2D52191024F9BDE9008B7E6F /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2D52190E24F9BDE3008B7E6F /* RegistrationInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2D5596DE24C1786700A9F430 /* Services */ = {
@@ -1158,18 +1117,10 @@
 			isa = PBXGroup;
 			children = (
 				2DA5063324EF1FBF003A4180 /* LoginModule.swift */,
-				2DA5062C24EF1E37003A4180 /* Implementation */,
-			);
-			path = LoginModule;
-			sourceTree = "<group>";
-		};
-		2DA5062C24EF1E37003A4180 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
 				2DA5063224EF1F89003A4180 /* View */,
 				2D47FD4925141784008BB087 /* ViewModel */,
 			);
-			path = Implementation;
+			path = LoginModule;
 			sourceTree = "<group>";
 		};
 		2DA5063224EF1F89003A4180 /* View */ = {
@@ -1179,6 +1130,14 @@
 				2DA5063024EF1EA9003A4180 /* Login.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2DBFE4DA251795200041407E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DBFE4D8251794170041407E /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2DC445D424FDA360009E5396 /* Frameworks */ = {
@@ -1425,7 +1384,6 @@
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */,
 				2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */,
-				2D52190F24F9BDE3008B7E6F /* RegistrationInteractor.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
 				2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */,
 				2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */,
@@ -1438,10 +1396,10 @@
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */,
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */,
+				2DBFE4DC2517A2060041407E /* RegistrationCredentials.swift in Sources */,
 				2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
-				2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */,
 				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */,
@@ -1459,6 +1417,7 @@
 				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
+				2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */,
 				2D48791225058B4800E5DFB0 /* RegularTableViewCell.swift in Sources */,
 				2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
@@ -1469,7 +1428,6 @@
 				2DA5063424EF1FBF003A4180 /* LoginModule.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				2D88E67224F85AFA0093C9C6 /* Credentials.swift in Sources */,
-				2D52190C24F9BD91008B7E6F /* RegistrationPresenter.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
@@ -1483,7 +1441,6 @@
 				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2DB74B0B24CA35190076CE43 /* Color.swift in Sources */,
-				2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
 				2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
@@ -1513,7 +1470,6 @@
 				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,
 				2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */,
 				2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */,
-				2D52190424F9BC65008B7E6F /* RegistrationUseCase.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */,
 				2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */,
