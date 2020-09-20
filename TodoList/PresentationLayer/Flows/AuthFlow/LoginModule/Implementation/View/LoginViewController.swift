@@ -103,11 +103,11 @@ class LoginViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		viewModel.loginError
-			.subscribe(onNext: { [weak self] in self?.refreshUserNameTextField(with: $0) })
+			.subscribe(onNext: { [weak self] in self?.usernameTextField.setErrorMessage($0) })
 			.disposed(by: disposeBag)
 
 		viewModel.passwordError
-			.subscribe(onNext: { [weak self] in self?.refreshPasswordTextField(with: $0) })
+			.subscribe(onNext: { [weak self] in self?.passwordTexrField.setErrorMessage($0) })
 			.disposed(by: disposeBag)
 	}
 
@@ -118,16 +118,6 @@ class LoginViewController: UIViewController {
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		view.endEditing(true)
-	}
-}
-
-extension LoginViewController {
-	func refreshUserNameTextField(with errorMessage: String) {
-		usernameTextField.setErrorMessage(errorMessage)
-	}
-
-	func refreshPasswordTextField(with errorMessage: String) {
-		passwordTexrField.setErrorMessage(errorMessage)
 	}
 }
 
