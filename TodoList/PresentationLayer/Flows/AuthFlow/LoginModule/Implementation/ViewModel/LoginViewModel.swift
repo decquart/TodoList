@@ -47,11 +47,11 @@ final class LoginViewModel: NSObject {
 	}
 
 	func signInTapped() {
-		Observable.combineLatest(username, password) {
+		Observable.zip(username, password) {
 			return Credentials(name: $0, password: $1)
 		}
-		.flatMap { [weak self] in
-			return self?.validateCredentials($0) ?? Observable.empty()
+		.flatMap { [weak self] val -> Observable<Bool> in
+			return self?.validateCredentials(val) ?? Observable.empty()
 		}
 		.observeOn(MainScheduler.instance)
 		.subscribe(onNext: { [weak self] success in
@@ -110,8 +110,8 @@ final class LoginViewModel: NSObject {
 					let isValidPassword = password == credentials.password
 
 					if isValidPassword {
-						observer.on(.next(true))
 						self.userSession.logIn(user.name)
+						observer.on(.next(true))
 					} else {
 						observer.on(.error(LoginError.invalidPassword))
 					}

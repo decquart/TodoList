@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 
 class LoginModule {
+	private let disposeBag = DisposeBag()
+
 	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
 
 		let view = LoginViewController.instantiate(storyboard: .login)
@@ -18,19 +20,17 @@ class LoginModule {
 									   keychain: Keychain(),
 									   userSession: UserSession.default)
 
-
-		//todo: need to figure out why it works with shared dispose bag
 		viewModel.didSignIn
 			.subscribe(onNext: {
 				onFinish?()
 			})
-			.disposed(by: viewModel.disposeBag)
+			.disposed(by: disposeBag)
 
 		viewModel.didSignUp
 			.subscribe(onNext: {
 				onRegister?()
 			})
-			.disposed(by: viewModel.disposeBag)
+			.disposed(by: disposeBag)
 
 		let googleSignInService = GoogleSignInService.shared
 		googleSignInService.configure(with: view, and: viewModel)
