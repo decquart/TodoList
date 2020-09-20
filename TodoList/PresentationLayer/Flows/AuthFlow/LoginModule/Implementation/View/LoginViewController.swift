@@ -37,7 +37,14 @@ class LoginViewController: UIViewController {
 	}
 
 
-	@IBOutlet weak var signInWithGoogleButton: UIButton!
+	@IBOutlet weak var signInWithGoogleButton: UIButton! {
+		didSet {
+			signInWithGoogleButton.clipsToBounds = true
+			signInWithGoogleButton.layer.cornerRadius = signInWithGoogleButton.frame.height / 2
+			signInWithGoogleButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+			signInWithGoogleButton.setTitleColor(UIColor(red: 25/255, green: 104/255, blue: 231/255, alpha: 1), for: .normal)
+		}
+	}
 
 	@IBOutlet weak var signUpButton: UIButton! {
 		didSet {
@@ -51,7 +58,6 @@ class LoginViewController: UIViewController {
 		didSet {
 			usernameTextField.delegate = self
 			usernameTextField.addTarget(self, action: #selector(removePlaceholderMessage(_:)), for: .editingChanged)
-
 		}
 	}
 
