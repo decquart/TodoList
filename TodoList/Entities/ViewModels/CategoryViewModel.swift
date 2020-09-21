@@ -13,6 +13,7 @@ struct CategoryViewModel {
 	var name: String = ""
 	var imagePath: String = ""
 	var colorName: String = ""
+	var taskCount: Int = 0
 
 	var image: UIImage? {
 		return UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
@@ -24,11 +25,12 @@ struct CategoryViewModel {
 
 	init() {}
 
-	init(model: Category) {
-		id = model.id
-		imagePath = model.imagePath
-		name = model.name
-		colorName = model.colorName
+	init(model: Category, taskCount: Int = 0) {
+		self.id = model.id
+		self.imagePath = model.imagePath
+		self.name = model.name
+		self.colorName = model.colorName
+		self.taskCount = taskCount
 	}
 }
 

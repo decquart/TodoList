@@ -31,7 +31,6 @@
 		04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF0789248F5FB400440A43 /* TaskObject.swift */; };
 		04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF078B248F614400440A43 /* RealmTaskRepository.swift */; };
 		04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1224801A5F0048336E /* CategoryListViewController.swift */; };
-		04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1B24801B660048336E /* CategoryListPresenter.swift */; };
 		04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1E24801F680048336E /* CategoryCollectionViewCell.swift */; };
 		04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD202480317B0048336E /* TaskListViewController.swift */; };
 		04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD2524805BC80048336E /* TaskListPresenter.swift */; };
@@ -96,8 +95,6 @@
 		2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825B24DC1D5900F693EC /* DeepLink.swift */; };
 		2D56826024DC63E700F693EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825F24DC63E700F693EC /* TabBarController.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
-		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
-		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
 		2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6452C724B7C348009978EE /* SettingsViewController.swift */; };
 		2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */; };
 		2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */; };
@@ -133,8 +130,6 @@
 		2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */; };
 		2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */; };
 		2D88E67224F85AFA0093C9C6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E67124F85AF90093C9C6 /* Credentials.swift */; };
-		2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */; };
-		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
 		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
 		2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */; };
 		2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */; };
@@ -151,6 +146,8 @@
 		2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC4C4224D00B0B00C38620 /* Scope.swift */; };
 		2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4D8251794170041407E /* RegistrationViewModel.swift */; };
 		2DBFE4DC2517A2060041407E /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */; };
+		2DBFE4DE2517BB990041407E /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4DD2517BB990041407E /* CategoryListViewModel.swift */; };
+		2DBFE4E5251886500041407E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4E4251886500041407E /* Constants.swift */; };
 		2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC445E124FDB115009E5396 /* GoogleSignInService.swift */; };
 		2DC445EA24FDC677009E5396 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
 		2DC445EB24FDC677009E5396 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E724FDC677009E5396 /* README.md */; };
@@ -217,7 +214,6 @@
 		04CF0789248F5FB400440A43 /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
 		04CF078B248F614400440A43 /* RealmTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaskRepository.swift; sourceTree = "<group>"; };
 		04EFFD1224801A5F0048336E /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
-		04EFFD1B24801B660048336E /* CategoryListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenter.swift; sourceTree = "<group>"; };
 		04EFFD1E24801F680048336E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04EFFD202480317B0048336E /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		04EFFD2524805BC80048336E /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
@@ -275,8 +271,6 @@
 		2D56825B24DC1D5900F693EC /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		2D56825F24DC63E700F693EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
-		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
-		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D6452C724B7C348009978EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Wrapper.swift"; sourceTree = "<group>"; };
@@ -312,8 +306,6 @@
 		2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D88E67124F85AF90093C9C6 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListUseCase.swift; sourceTree = "<group>"; };
-		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
 		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
 		2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsInteractor.swift; sourceTree = "<group>"; };
 		2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GIDProfileData+User.swift"; sourceTree = "<group>"; };
@@ -330,6 +322,8 @@
 		2DBC4C4224D00B0B00C38620 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
 		2DBFE4D8251794170041407E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
+		2DBFE4DD2517BB990041407E /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		2DBFE4E4251886500041407E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2DC445E124FDB115009E5396 /* GoogleSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInService.swift; sourceTree = "<group>"; };
 		2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		2DC445E724FDC677009E5396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -555,18 +549,10 @@
 			isa = PBXGroup;
 			children = (
 				2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */,
-				2D5F22AA24BCEDA600A46ED6 /* Protocols */,
-				2D5F22AB24BCEE1400A46ED6 /* Implementation */,
+				04EFFD1424801A660048336E /* View */,
+				2DBFE4DF2517BB9F0041407E /* ViewModel */,
 			);
 			path = CategoryListModule;
-			sourceTree = "<group>";
-		};
-		04EFFD1D24801B6D0048336E /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				04EFFD1B24801B660048336E /* CategoryListPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		04EFFD22248031800048336E /* TaskListModule */ = {
@@ -648,6 +634,7 @@
 				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
 				2DBC4C4224D00B0B00C38620 /* Scope.swift */,
 				2D56825B24DC1D5900F693EC /* DeepLink.swift */,
+				2DBFE4E4251886500041407E /* Constants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -926,26 +913,6 @@
 			path = Flows;
 			sourceTree = "<group>";
 		};
-		2D5F22AA24BCEDA600A46ED6 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */,
-				2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */,
-				2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2D5F22AB24BCEE1400A46ED6 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				04EFFD1424801A660048336E /* View */,
-				2D91D1D024F3E78D00D6303A /* Interactor */,
-				04EFFD1D24801B6D0048336E /* Presenter */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
 		2D6452C924B7C379009978EE /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,14 +1054,6 @@
 			path = ColorPicker;
 			sourceTree = "<group>";
 		};
-		2D91D1D024F3E78D00D6303A /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		2D91D1D524F4545300D6303A /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1095,14 @@
 			isa = PBXGroup;
 			children = (
 				2DBFE4D8251794170041407E /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2DBFE4DF2517BB9F0041407E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DBFE4DD2517BB990041407E /* CategoryListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1373,7 +1340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
@@ -1385,7 +1351,6 @@
 				2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */,
 				2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
-				2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */,
 				2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
@@ -1413,8 +1378,8 @@
 				2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */,
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
-				2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */,
 				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
+				2DBFE4E5251886500041407E /* Constants.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
 				2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */,
@@ -1431,6 +1396,7 @@
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
+				2DBFE4DE2517BB990041407E /* CategoryListViewModel.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
 				2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */,
@@ -1489,7 +1455,6 @@
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
 				2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */,
-				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
 				2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,
 				2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */,
@@ -1503,7 +1468,6 @@
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
 				2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */,
-				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,

@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import RxSwift
 
 final class CategoryListModule {
 	func build(onShowCategoryDetails: ScopeCategoryHandler?, onPresent: TaskHandler?) -> UIViewController {
 		let view = CategoryListViewController.instantiate(storyboard: .main)
 		let coreDataStack = CoreDataStackHolder.shared.coreDataStack
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let interactor = CategoryListInteractor(repository: repository)
-		let presenter = CategoryListPresenter(view: view, interactor: interactor)
-		presenter.onShowCategoryDetails = onShowCategoryDetails
-		presenter.onPresentTasks = onPresent
-		interactor.output = presenter
-		view.presenter = presenter
+		let viewModel = CategoryListViewModel(repository: repository)
+
+		viewModel.onEditCategory
+			.subscribe(onNext: {
+				onShowCategoryDetails?($0)
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		viewModel.onSelectCategory
+			.subscribe(onNext: {
+				onPresent?($0)
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		view.viewModel = viewModel
+
 		return view
 	}
 }

@@ -10,7 +10,11 @@ import UIKit
 
 final class MainRouter: Routable {
 
-	let rootViewController: UINavigationController = UINavigationController()
+	lazy var rootViewController: UINavigationController = {
+		let navController = UINavigationController()
+		navController.navigationBar.isTranslucent = false
+		return navController
+	}()
 
 	func present(_ module: UIViewController, animated: Bool, completion: Completion?) {
 		self.rootViewController.present(module, animated: animated, completion: completion)
