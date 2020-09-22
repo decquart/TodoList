@@ -23,7 +23,7 @@ final class RegistrationViewModel {
 	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
 
-	private let disposeBag = DisposeBag()
+	let disposeBag = DisposeBag()
 
 	let onBack = PublishSubject<Void>()
 	let didSignup = PublishSubject<Void>()

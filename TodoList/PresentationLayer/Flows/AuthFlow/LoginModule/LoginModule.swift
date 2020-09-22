@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import RxSwift
 
 class LoginModule {
-	private let disposeBag = DisposeBag()
-
 	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
 
 		let view = LoginViewController.instantiate(storyboard: .login)
@@ -24,13 +21,13 @@ class LoginModule {
 			.subscribe(onNext: {
 				onFinish?()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: viewModel.disposeBag)
 
 		viewModel.didSignUp
 			.subscribe(onNext: {
 				onRegister?()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: viewModel.disposeBag)
 
 		let googleSignInService = GoogleSignInService.shared
 		googleSignInService.configure(with: view, and: viewModel)

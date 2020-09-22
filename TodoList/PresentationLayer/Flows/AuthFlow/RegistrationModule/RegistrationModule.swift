@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import RxSwift
 
 class RegistrationModule {
-	let disposeBag = DisposeBag()
-
 	func build(onBack: (() -> Void)?) -> UIViewController {
 		let view = RegistrationViewController.instantiate(storyboard: .registration)
 		let repo = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
@@ -21,7 +18,7 @@ class RegistrationModule {
 			.subscribe(onNext: {
 				onBack?()
 			})
-			.disposed(by: disposeBag)
+			.disposed(by: viewModel.disposeBag)
 
 		view.viewModel = viewModel
 		return view

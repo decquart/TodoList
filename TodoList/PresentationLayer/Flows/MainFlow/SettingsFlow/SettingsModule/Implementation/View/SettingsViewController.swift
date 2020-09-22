@@ -41,6 +41,7 @@ class SettingsViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.topItem?.title = "Settings"
+		self.navigationController?.navigationBar.sizeToFit()
 	}
 }
 

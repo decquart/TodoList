@@ -76,8 +76,4 @@ final class CategoryListViewModel {
 	func editItem(at index: Int) {
 		onEditIndex.onNext(index)
 	}
-
-	func createCategory() {
-		onEditCategory.onNext(.create)
-	}
 }

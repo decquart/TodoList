@@ -12,7 +12,7 @@ final class MainRouter: Routable {
 
 	lazy var rootViewController: UINavigationController = {
 		let navController = UINavigationController()
-		navController.navigationBar.isTranslucent = false
+		navController.navigationBar.prefersLargeTitles = true
 		return navController
 	}()
 

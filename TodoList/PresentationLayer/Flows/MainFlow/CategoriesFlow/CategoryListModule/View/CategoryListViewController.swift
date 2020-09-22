@@ -21,6 +21,10 @@ class CategoryListViewController: UIViewController {
 		}
 	}
 
+	lazy var addButton = {
+		UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+	}()
+
 	var viewModel: CategoryListViewModel!
 	let inset: CGFloat = 12.0
 
@@ -33,13 +37,18 @@ class CategoryListViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		self.navigationController?.navigationBar.topItem?.title = "Categories"
-		let item = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonAddPressed))
-		self.navigationController?.navigationBar.topItem?.rightBarButtonItem = item
+		self.navigationController?.navigationBar.topItem?.rightBarButtonItem = addButton
+		self.navigationController?.navigationBar.sizeToFit()
 
 		viewModel.loadCategories()
 	}
 
 	func setupBindings() {
+		addButton.rx.tap
+			.subscribe(onNext: { [weak self] in
+				self?.viewModel.onEditCategory.onNext(.create)
+			})
+			.disposed(by: disposeBag)
 
 		viewModel.categoryModels.bind(to: collectionView.rx.items(cellIdentifier: "CategoryCollectionViewCell", cellType: CategoryCollectionViewCell.self)) { row, category, cell in
 			cell.configure(with: category)
@@ -70,13 +79,6 @@ extension CategoryListViewController: UICollectionViewDelegateFlowLayout {
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-	}
-}
-
-// MARK: - Selectors
-extension CategoryListViewController {
-	@objc func buttonAddPressed() {
-		viewModel.createCategory()
 	}
 }
 

@@ -148,6 +148,7 @@
 		2DBFE4DC2517A2060041407E /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */; };
 		2DBFE4DE2517BB990041407E /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4DD2517BB990041407E /* CategoryListViewModel.swift */; };
 		2DBFE4E5251886500041407E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4E4251886500041407E /* Constants.swift */; };
+		2DBFE4E7251936D80041407E /* CategoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFE4E6251936D80041407E /* CategoryDetailsViewModel.swift */; };
 		2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC445E124FDB115009E5396 /* GoogleSignInService.swift */; };
 		2DC445EA24FDC677009E5396 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
 		2DC445EB24FDC677009E5396 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E724FDC677009E5396 /* README.md */; };
@@ -324,6 +325,7 @@
 		2DBFE4DB2517A2060041407E /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		2DBFE4DD2517BB990041407E /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		2DBFE4E4251886500041407E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DBFE4E6251936D80041407E /* CategoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewModel.swift; sourceTree = "<group>"; };
 		2DC445E124FDB115009E5396 /* GoogleSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInService.swift; sourceTree = "<group>"; };
 		2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		2DC445E724FDC677009E5396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -982,6 +984,7 @@
 				047C64F924858ACE00BB6702 /* View */,
 				2D91D1D524F4545300D6303A /* Interactor */,
 				04606D132486164F00AE5633 /* Presenter */,
+				2DBFE4E6251936D80041407E /* CategoryDetailsViewModel.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1421,6 +1424,7 @@
 				2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */,
 				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
 				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
+				2DBFE4E7251936D80041407E /* CategoryDetailsViewModel.swift in Sources */,
 				2D52191224FA77EB008B7E6F /* SignUpViewModel.swift in Sources */,
 				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
 				04BCAB822498136C00A38846 /* CategoryMO+CoreDataClass.swift in Sources */,

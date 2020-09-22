@@ -7,29 +7,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class CategoryDetailsViewController: UIViewController {
-	var presenter: CategoryDetailsPresenterProtocol!
-	var scope: Scope<CategoryViewModel>!
+	var viewModel: CategoryDetailsViewModel!
 
-	private var viewModel: CategoryViewModel {
-		if case let .edit(category) = scope {
-			return category
-		}
-
-		return CategoryViewModel()
-	}
-
-	//todo: get rid
-	private var imagePath: String = ""
-	private var color: Color! {
-		didSet {
-			categoryIconImageView.tintColor = color?.uiColor
-		}
-	}
+	let disposeBag = DisposeBag()
 
 	private lazy var saveBarButton: UIBarButtonItem = {
-		return UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
+		return UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
 	}()
 
 	@IBOutlet weak private var categoryIconImageView: UIImageView!
@@ -37,92 +23,54 @@ class CategoryDetailsViewController: UIViewController {
 	@IBOutlet weak private var colorsContainerView: UIView!
 	@IBOutlet weak var iconsContainerView: UIView!
 
-	var colorPickerView: UIView! {
-		didSet {
-			self.view.layoutIfNeeded()
-			colorsContainerView.add(colorPickerView, top: 0, left: 8, right: -8, bottom: 0)
-		}
-	}
-
-	var iconPickerView: UIView! {
-		didSet {
-			self.view.layoutIfNeeded()
-			iconsContainerView.add(iconPickerView, top: 0, left: 8, right: -8, bottom: 0)
-		}
-	}
+	var colorPickerView: UIView?
+	var iconPickerView: UIView?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+
+		if let iconPickerView = iconPickerView {
+			iconsContainerView.add(iconPickerView, top: 0, left: 8, right: -8, bottom: 0)
+		}
+
+		if let colorPickerView = colorPickerView {
+			colorsContainerView.add(colorPickerView, top: 0, left: 8, right: -8, bottom: 0)
+		}
+
 		setupGestureRecognizer()
+		setupBindings()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		initAppearance()
-	}
-}
+		self.navigationItem.rightBarButtonItem = saveBarButton
 
-// MARK: - Handlers
-extension CategoryDetailsViewController {
-	@objc func saveButtonPressed() {
-		guard let name = titleTextField.text, !name.isEmpty else {
-			return
-		}
-
-		var category = viewModel
-		category.name = name
-		category.imagePath = imagePath
-		category.colorName = color.rawValue
-
-		presenter.saveButtonPressed(with: category)
-	}
-}
-
-// MARK: - CategoryDetailsInput
-extension CategoryDetailsViewController: CategoryDetailsViewProtocol {
-	var isNewCategory: Bool {
-		if case .create = scope {
-			return true
-		}
-
-		return false
+		viewModel.initAppearance()
 	}
 
-	func refreshIcon(_ imagePath: String) {
-		self.imagePath = imagePath
-		categoryIconImageView.image = UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
-	}
+	func setupBindings() {
+		viewModel.selectedImage
+			.map { UIImage(named: $0)?.withRenderingMode(.alwaysTemplate) }
+			.bind(to: categoryIconImageView.rx.image)
+			.disposed(by: disposeBag)
 
-	func refreshColor(_ color: Color) {
-		self.color = color
-	}
-}
+		viewModel.selectedColor
+			.subscribe(onNext: { [weak self] in
+				self?.categoryIconImageView.tintColor = $0.uiColor
+			})
+			.disposed(by: disposeBag)
 
-// MARK: - Appearance
-extension CategoryDetailsViewController {
-	func initAppearance() {
-		navigationItem.rightBarButtonItem = saveBarButton
+		viewModel.categoryName
+			.bind(to: titleTextField.rx.text)
+			.disposed(by: disposeBag)
 
-		switch scope {
-		case .edit(let category):
-			setupAppearance(with: category)
-		default:
-			setupDefaultAppearance()
-		}
-	}
+		saveBarButton.rx.tap
+			.bind { [weak self] in self?.viewModel.saveTapped() }
+			.disposed(by: disposeBag)
 
-	func setupDefaultAppearance() {
-		categoryIconImageView.image = UIImage(named: "shopping")
-		self.color = .customBlue
-		self.imagePath = "shopping"
-	}
-
-	func setupAppearance(with existingCategory: CategoryViewModel) {
-		titleTextField.text = existingCategory.name
-		categoryIconImageView.image = existingCategory.image
-
-		self.color = existingCategory.color
-		self.imagePath = existingCategory.imagePath
+		titleTextField.rx.text.orEmpty
+			.bind(to: viewModel.categoryName)
+			.disposed(by: disposeBag)
 	}
 }
 

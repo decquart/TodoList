@@ -11,8 +11,6 @@ import Foundation
 final class AuthCoordinator: BaseCoordinator {
 
 	var onFinish: (() -> Void)?
-	private let loginModule = LoginModule()
-	private let registrationModule = RegistrationModule()
 
 	override func start() {
 		showLoginScreen()
@@ -21,7 +19,7 @@ final class AuthCoordinator: BaseCoordinator {
 
 private extension AuthCoordinator {
 	func showLoginScreen() {
-		let module = loginModule.build(onFinish: onFinish,
+		let module = LoginModule().build(onFinish: onFinish,
 										 onRegister: showRegistrationScreen)
 
 		self.router.rootViewController.navigationBar.isHidden = true
@@ -29,7 +27,7 @@ private extension AuthCoordinator {
 	}
 
 	func showRegistrationScreen() {
-		let module = registrationModule.build(onBack: router.pop)
+		let module = RegistrationModule().build(onBack: router.pop)
 		self.router.push(module)
 	}
 }
