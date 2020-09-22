@@ -9,8 +9,9 @@
 import UIKit
 
 final class IconPickerModule {
-	func build() -> IconPickerView {
+	func build(imagePath: String?) -> IconPickerView {
 		let view = Bundle.main.loadNibNamed("IconPickerView", owner: IconPickerView.self, options: nil)?.first as! IconPickerView
+		view.setSelected(imagePath)
 		return view
 	}
 }

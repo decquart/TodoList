@@ -14,7 +14,7 @@ final class CategoryDetailsModule {
 		let repository = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let viewModel = CategoryDetailsViewModel(repository: repository, scope: scope)
 
-		let iconsSubview = IconPickerModule().build()
+		let iconsSubview = IconPickerModule().build(imagePath: scope.model?.imagePath)
 		let colorsSubview = ColorPickerModule().build(selectedColor: scope.model?.color)
 
 		view.viewModel = viewModel

@@ -11,7 +11,7 @@ import UIKit
 class ColorPickerModule {
 	func build(selectedColor: Color?) -> ColorPickerView {
 		let view = Bundle.main.loadNibNamed("ColorPickerView", owner: ColorPickerView.self, options: nil)?.first as! ColorPickerView
-		
+		view.setSelected(selectedColor)
 		return view
 	}
 }

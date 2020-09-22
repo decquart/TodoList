@@ -19,7 +19,11 @@ class CategoryDetailsViewController: UIViewController {
 	}()
 
 	@IBOutlet weak private var categoryIconImageView: UIImageView!
-	@IBOutlet weak private var titleTextField: UITextField!
+	@IBOutlet weak private var titleTextField: UITextField! {
+		didSet {
+			titleTextField.layer.cornerRadius = titleTextField.frame.height / 2
+		}
+	}
 	@IBOutlet weak private var colorsContainerView: UIView!
 	@IBOutlet weak var iconsContainerView: UIView!
 
@@ -28,6 +32,7 @@ class CategoryDetailsViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		navigationItem.title = "Category"
 
 		if let iconPickerView = iconPickerView {
 			iconsContainerView.add(iconPickerView, top: 0, left: 8, right: -8, bottom: 0)

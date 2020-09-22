@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class ColorPickerView: UIView {
-	private var selectedCell: ColorPickerCollectionViewCell? = nil
+	private var selectedIndexPath: IndexPath? = nil
 
 	private var colors: [Color] {
 		return [.customBlue, .customGreen, .customIndigo, .customOrange, .customPink, .customPurple, .customRed, .customTeal, .customYellow]
@@ -36,18 +36,21 @@ class ColorPickerView: UIView {
 
 		Observable.from(optional: colors).bind(to: collectionView.rx.items(cellIdentifier: "ColorPickerCollectionViewCell", cellType: ColorPickerCollectionViewCell.self)) { [weak self] row, name, cell in
 			cell.backgroundColor = self?.colors[row].uiColor
+
 		}
 		.disposed(by: disposeBag)
 
 		Observable.zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(Color.self))
 			.subscribe(onNext: { [unowned self] in
-				self.setSelected(false, cell: self.selectedCell)
-
-				let cell = self.collectionView.cellForItem(at: $0) as? ColorPickerCollectionViewCell
-				self.setSelected(true, cell: cell)
-				self.selectedCell = cell
-
+				self.selectedIndexPath = $0
 				self.onSelectColor.onNext($1)
+				self.collectionView.reloadData()
+			})
+			.disposed(by: disposeBag)
+
+		collectionView.rx.willDisplayCell
+			.subscribe(onNext: { [weak self] cell, indexPath in
+				self?.setSelected(indexPath == self?.selectedIndexPath, cell: cell)
 			})
 			.disposed(by: disposeBag)
 	}
@@ -73,8 +76,17 @@ extension ColorPickerView: UICollectionViewDelegateFlowLayout {
 	}
 }
 
-private extension ColorPickerView {
-	func setSelected(_ isSelected: Bool, cell: UICollectionViewCell?) {
+extension ColorPickerView {
+	func setSelected(_ color: Color?) {
+		guard let color = color, let index = colors.firstIndex(of: color) else {
+			selectedIndexPath = IndexPath(row: 0, section: 0)
+			return
+		}
+
+		selectedIndexPath = IndexPath(row: index, section: 0)
+	}
+
+	private func setSelected(_ isSelected: Bool, cell: UICollectionViewCell?) {
 		let borderWidth: CGFloat = isSelected ? 2.0 : .zero
 
 		UIView.transition(with: self,

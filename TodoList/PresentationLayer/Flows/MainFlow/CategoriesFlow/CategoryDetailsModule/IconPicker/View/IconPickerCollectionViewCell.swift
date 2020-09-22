@@ -15,5 +15,6 @@ class IconPickerCollectionViewCell: UICollectionViewCell {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.layer.cornerRadius = self.frame.height / 2
+		self.layer.borderWidth = 1.0
 	}
 }

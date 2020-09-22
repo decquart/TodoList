@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class IconPickerView: UIView {
-	private var selectedCell: IconPickerCollectionViewCell? = nil
+	private var selectedIndexPath: IndexPath? = nil
 
 	private let imageNames = ["shopping", "todo", "work"]
 	let didSelectImageName = PublishSubject<String>()
@@ -34,26 +34,34 @@ class IconPickerView: UIView {
 	func setupBindings() {
 		Observable.from(optional: imageNames).bind(to: collectionView.rx.items(cellIdentifier: "IconPickerCollectionViewCell", cellType: IconPickerCollectionViewCell.self)) { row, name, cell in
 			cell.imageView.image = UIImage(named: name)
+
 		}
 		.disposed(by: disposeBag)
 
-		collectionView.rx.itemSelected
-			.subscribe(onNext: { [unowned self] in
-				self.didSelectImageName.onNext(self.imageNames[$0.row])
+		Observable.zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(String.self))
+			.subscribe(onNext: { [unowned self] indexPath, imageName in
+				self.didSelectImageName.onNext(imageName)
+				self.selectedIndexPath = indexPath
+				self.collectionView.reloadData()
+			})
+			.disposed(by: disposeBag)
+
+		collectionView.rx.willDisplayCell
+			.subscribe(onNext: { [unowned self] cell, indexPath in
+				cell.layer.borderColor = self.selectedIndexPath == indexPath
+					? UIColor.secondaryLabel.cgColor
+					: UIColor.clear.cgColor
 			})
 			.disposed(by: disposeBag)
 	}
-}
 
-extension IconPickerView: UICollectionViewDelegate {
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		guard let cell = collectionView.cellForItem(at: indexPath) as? IconPickerCollectionViewCell else {
+	func setSelected(_ imageName: String?) {
+		guard let imageName = imageName, let index = imageNames.firstIndex(of: imageName) else {
+			selectedIndexPath = IndexPath(row: 0, section: 0)
 			return
 		}
 
-		selectedCell?.layer.backgroundColor = UIColor.clear.cgColor
-		cell.layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
-		selectedCell = cell
+		selectedIndexPath = IndexPath(row: index, section: 0)
 	}
 }
 
