@@ -7,39 +7,45 @@
 //
 
 import UIKit
+import RxSwift
 
 class IconPickerView: UIView {
 	private var selectedCell: IconPickerCollectionViewCell? = nil
-	var presenter: IconPickerPresenterProtocol!
+
+	private let imageNames = ["shopping", "todo", "work"]
+	let didSelectImageName = PublishSubject<String>()
+
+	let disposeBag = DisposeBag()
 
 	@IBOutlet weak private var collectionView: UICollectionView! {
 		didSet {
-			collectionView.delegate = self
-			collectionView.dataSource = self
+			collectionView.rx.setDelegate(self).disposed(by: disposeBag)
 			collectionView.registerNib(cellType: IconPickerCollectionViewCell.self)
 			collectionView.allowsSelection = true
 		}
 	}
-}
 
-extension IconPickerView: IconPickerViewProtocol {
-	func iconDidSelect(_ imagePath: String) {
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		setupBindings()
+	}
 
+	func setupBindings() {
+		Observable.from(optional: imageNames).bind(to: collectionView.rx.items(cellIdentifier: "IconPickerCollectionViewCell", cellType: IconPickerCollectionViewCell.self)) { row, name, cell in
+			cell.imageView.image = UIImage(named: name)
+		}
+		.disposed(by: disposeBag)
+
+		collectionView.rx.itemSelected
+			.subscribe(onNext: { [unowned self] in
+				self.didSelectImageName.onNext(self.imageNames[$0.row])
+			})
+			.disposed(by: disposeBag)
 	}
 }
 
-// MARK: UICollectionViewDelegate, UICollectionViewDataSource
-extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		presenter.imageNames.count
-	}
-
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeue(cellType: IconPickerCollectionViewCell.self, for: indexPath)
-		cell.imageView.image = UIImage(named: presenter.imageNames[indexPath.row])
-		return cell
-	}
-
+extension IconPickerView: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		guard let cell = collectionView.cellForItem(at: indexPath) as? IconPickerCollectionViewCell else {
 			return
@@ -48,8 +54,6 @@ extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 		selectedCell?.layer.backgroundColor = UIColor.clear.cgColor
 		cell.layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
 		selectedCell = cell
-
-		presenter.updateIcon(at: indexPath.row)
 	}
 }
 

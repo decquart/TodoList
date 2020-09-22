@@ -22,12 +22,20 @@ final class CategoryDetailsModule {
 			})
 			.disposed(by: viewModel.disposeBag)
 
-//		let iconsSubview = IconPickerModule().build(presenter)
+		let iconsSubview = IconPickerModule().build()
+
+		iconsSubview.didSelectImageName
+			.subscribe(onNext: {
+				viewModel.selectedImage.onNext($0)
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		
 //		let colorsSubview = ColorPickerModule().build(presenter, selectedColor: scope.model?.color)
 //		presenter.onDismiss = onDismiss
 //		interactor.output = presenter
 //		view.colorPickerView = colorsSubview
-//		view.iconPickerView = iconsSubview
+		view.iconPickerView = iconsSubview
 //		view.presenter = presenter
 
 

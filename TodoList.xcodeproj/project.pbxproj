@@ -72,7 +72,6 @@
 		2D48793425075D4B00E5DFB0 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
-		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
 		2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */; };
 		2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */; };
 		2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */; };
@@ -119,8 +118,6 @@
 		2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */; };
 		2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */; };
 		2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DA24BD13F300A04190 /* SettingsModule.swift */; };
-		2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */; };
-		2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */; };
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
@@ -250,7 +247,6 @@
 		2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
-		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -294,8 +290,6 @@
 		2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0DA24BD13F300A04190 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
-		2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewProtocol.swift; sourceTree = "<group>"; };
-		2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
@@ -804,7 +798,6 @@
 			children = (
 				2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */,
 				2D82A0DC24BD153B00A04190 /* Implementation */,
-				2D82A0DD24BD154A00A04190 /* Protocols */,
 			);
 			path = IconPicker;
 			sourceTree = "<group>";
@@ -828,14 +821,6 @@
 				2D82A0B524BCF9B000A04190 /* Protocols */,
 			);
 			path = CategoryDetails;
-			sourceTree = "<group>";
-		};
-		2D4928D024A5CAE0008AF740 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		2D51EBD024FC564100FA92A0 /* MainFlow */ = {
@@ -1019,18 +1004,8 @@
 			isa = PBXGroup;
 			children = (
 				2D4928CC24A5C5CA008AF740 /* View */,
-				2D4928D024A5CAE0008AF740 /* Presenter */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2D82A0DD24BD154A00A04190 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */,
-				2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		2D82A0ED24BE28BB00A04190 /* ColorPicker */ = {
@@ -1363,7 +1338,6 @@
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
 				2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */,
-				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
 				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2DBFE4E5251886500041407E /* Constants.swift in Sources */,
@@ -1402,7 +1376,6 @@
 				2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */,
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,
-				2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */,
 				2D56826024DC63E700F693EC /* TabBarController.swift in Sources */,
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */,
@@ -1427,7 +1400,6 @@
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */,
 				2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */,
-				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,

@@ -9,12 +9,13 @@
 import UIKit
 
 final class IconPickerModule {
-	func build(_ detailsPresenter: CategoryDetailsPresenterProtocol) -> UIView {
-		let presenter = IconPickerPresenter()
+	func build() -> IconPickerView {
+		//let presenter = IconPickerPresenter()
 		let view = Bundle.main.loadNibNamed("IconPickerView", owner: IconPickerView.self, options: nil)?.first as! IconPickerView
-		view.presenter = presenter
-		presenter.view = view
-		presenter.detailsPresenter = detailsPresenter
+
+		//view.presenter = presenter
+		//presenter.view = view
+		//presenter.detailsPresenter = detailsPresenter
 		return view
 	}
 }
