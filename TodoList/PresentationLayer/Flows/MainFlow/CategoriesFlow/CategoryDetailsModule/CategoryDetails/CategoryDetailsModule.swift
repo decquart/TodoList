@@ -16,6 +16,12 @@ final class CategoryDetailsModule {
 
 		view.viewModel = viewModel
 
+		viewModel.onDismiss
+			.subscribe(onNext: {
+				onDismiss?()
+			})
+			.disposed(by: viewModel.disposeBag)
+
 //		let iconsSubview = IconPickerModule().build(presenter)
 //		let colorsSubview = ColorPickerModule().build(presenter, selectedColor: scope.model?.color)
 //		presenter.onDismiss = onDismiss
