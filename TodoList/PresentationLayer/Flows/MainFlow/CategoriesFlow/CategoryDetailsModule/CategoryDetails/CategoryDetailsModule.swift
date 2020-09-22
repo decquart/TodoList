@@ -14,7 +14,12 @@ final class CategoryDetailsModule {
 		let repository = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let viewModel = CategoryDetailsViewModel(repository: repository, scope: scope)
 
+		let iconsSubview = IconPickerModule().build()
+		let colorsSubview = ColorPickerModule().build(selectedColor: scope.model?.color)
+
 		view.viewModel = viewModel
+		view.colorPickerView = colorsSubview
+		view.iconPickerView = iconsSubview
 
 		viewModel.onDismiss
 			.subscribe(onNext: {
@@ -22,22 +27,17 @@ final class CategoryDetailsModule {
 			})
 			.disposed(by: viewModel.disposeBag)
 
-		let iconsSubview = IconPickerModule().build()
-
 		iconsSubview.didSelectImageName
 			.subscribe(onNext: {
 				viewModel.selectedImage.onNext($0)
 			})
 			.disposed(by: viewModel.disposeBag)
 
-		
-//		let colorsSubview = ColorPickerModule().build(presenter, selectedColor: scope.model?.color)
-//		presenter.onDismiss = onDismiss
-//		interactor.output = presenter
-//		view.colorPickerView = colorsSubview
-		view.iconPickerView = iconsSubview
-//		view.presenter = presenter
-
+		colorsSubview.onSelectColor
+			.subscribe(onNext: {
+				viewModel.selectedColor.onNext($0)
+			})
+			.disposed(by: viewModel.disposeBag)
 
 		return view
 	}

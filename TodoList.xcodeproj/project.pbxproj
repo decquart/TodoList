@@ -109,8 +109,6 @@
 		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
 		2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */; };
 		2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */; };
-		2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */; };
-		2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */; };
 		2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */; };
 		2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */; };
 		2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C824BD0BE300A04190 /* TaskListModule.swift */; };
@@ -126,7 +124,6 @@
 		2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */; };
 		2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */; };
 		2D88E67224F85AFA0093C9C6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E67124F85AF90093C9C6 /* Credentials.swift */; };
-		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
 		2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */; };
 		2D9B61742501BAE700CF0B40 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B61732501BAE700CF0B40 /* SettingsPresenter.swift */; };
 		2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B61752501BB0300CF0B40 /* SettingsPresenterProtocol.swift */; };
@@ -158,9 +155,6 @@
 		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
 		2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */; };
 		2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */; };
-		2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */; };
-		2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */; };
-		2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */; };
 		2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */; };
 		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
@@ -281,8 +275,6 @@
 		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackHolder.swift; sourceTree = "<group>"; };
 		2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsModule.swift; sourceTree = "<group>"; };
-		2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewProtocol.swift; sourceTree = "<group>"; };
-		2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C824BD0BE300A04190 /* TaskListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModule.swift; sourceTree = "<group>"; };
@@ -298,7 +290,6 @@
 		2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D88E67124F85AF90093C9C6 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
 		2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GIDProfileData+User.swift"; sourceTree = "<group>"; };
 		2D9B61732501BAE700CF0B40 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		2D9B61752501BB0300CF0B40 /* SettingsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -329,9 +320,6 @@
 		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
 		2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesInteractor.swift; sourceTree = "<group>"; };
 		2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenter.swift; sourceTree = "<group>"; };
-		2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenter.swift; sourceTree = "<group>"; };
-		2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenterProtocol.swift; sourceTree = "<group>"; };
-		2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewProtocol.swift; sourceTree = "<group>"; };
 		2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerModule.swift; sourceTree = "<group>"; };
 		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
@@ -797,7 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */,
-				2D82A0DC24BD153B00A04190 /* Implementation */,
+				2D4928CC24A5C5CA008AF740 /* View */,
 			);
 			path = IconPicker;
 			sourceTree = "<group>";
@@ -818,7 +806,6 @@
 			children = (
 				2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */,
 				2D82A0B624BCF9BE00A04190 /* Implementation */,
-				2D82A0B524BCF9B000A04190 /* Protocols */,
 			);
 			path = CategoryDetails;
 			sourceTree = "<group>";
@@ -941,16 +928,6 @@
 			path = RealmRepository;
 			sourceTree = "<group>";
 		};
-		2D82A0B524BCF9B000A04190 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */,
-				2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */,
-				2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		2D82A0B624BCF9BE00A04190 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,20 +977,11 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		2D82A0DC24BD153B00A04190 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				2D4928CC24A5C5CA008AF740 /* View */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
 		2D82A0ED24BE28BB00A04190 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
 				2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */,
-				2DD037A924BED7BC00FC6102 /* Implementation */,
-				2DD037A724BED77300FC6102 /* Protocols */,
+				2D01195E24BF825A0097E74D /* View */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -1122,32 +1090,6 @@
 			isa = PBXGroup;
 			children = (
 				2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		2DD037A724BED77300FC6102 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */,
-				2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2DD037A924BED7BC00FC6102 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				2D01195E24BF825A0097E74D /* View */,
-				2DD037AB24BED7DB00FC6102 /* Presenter */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2DD037AB24BED7DB00FC6102 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1313,7 +1255,6 @@
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */,
-				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
 				2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */,
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
 				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
@@ -1332,7 +1273,6 @@
 				2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */,
 				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
-				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
 				2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
@@ -1386,7 +1326,6 @@
 				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
 				04BCAB822498136C00A38846 /* CategoryMO+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* CategoryDetailsViewController.swift in Sources */,
-				2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
@@ -1400,9 +1339,7 @@
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */,
 				2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */,
-				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
-				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
 				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
@@ -1424,7 +1361,6 @@
 				2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */,
 				2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */,
 				2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */,
-				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
 				2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */,

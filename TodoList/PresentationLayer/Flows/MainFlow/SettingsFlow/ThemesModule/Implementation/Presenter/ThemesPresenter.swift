@@ -48,7 +48,7 @@ extension ThemesPresenter: ThemesInteractorOutput {
 }
 
 //MARK: - ColorPickerPresenterOutput
-extension ThemesPresenter: ColorPickerPresenterOutput {
+extension ThemesPresenter {//: ColorPickerPresenterOutput {
 	func updateColor(_ color: Color) {
 		interactor.saveSelectedColor(color: color)
 	}

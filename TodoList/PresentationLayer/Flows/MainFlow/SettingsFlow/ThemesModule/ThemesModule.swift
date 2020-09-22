@@ -14,7 +14,7 @@ class ThemesModule {
 		let interactor = ThemesInteractor(themeService: ThemeService.shared)
 		let presenter = ThemesPresenter(view: view, interactor: interactor)
 		let selectedColor = ThemeService.shared.applicationColor
-		let colorPickerView = ColorPickerModule().build(presenter, selectedColor: selectedColor)
+		let colorPickerView = ColorPickerModule().build(selectedColor: selectedColor)
 
 		presenter.onDismiss = onDismiss
 		presenter.onApplyColor = onApplyColor
