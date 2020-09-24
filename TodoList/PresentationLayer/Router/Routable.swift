@@ -8,8 +8,6 @@
 
 import UIKit
 
-typealias Completion = () -> Void
-
 protocol Routable: class {
 	var rootViewController: UINavigationController { get }
 	

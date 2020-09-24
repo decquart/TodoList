@@ -7,20 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 final class TaskDetailsViewController: UIViewController {
-	var presenter: TaskDetailsPresenterProtocol!
-	var scope: Scope<TaskViewModel> = .create
+	var viewModel: TaskDetailsViewModel!
+	let disposeBag = DisposeBag()
 
-	private var viewModel: TaskViewModel {
-		if case let .edit(task) = scope  {
-			return task
+	@IBOutlet weak private var textField: UITextField! {
+		didSet {
+			textField.layer.cornerRadius = textField.frame.height / 2
 		}
-
-		return TaskViewModel()
 	}
 
-	@IBOutlet weak private var textField: UITextField!
 	@IBOutlet weak private var sendButton: UIButton! {
 		didSet {
 			sendButton.tintColor = ThemeService.shared.applicationColor.uiColor
@@ -31,43 +29,36 @@ final class TaskDetailsViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-		initAppearance()
+		setupBindings()
+		viewModel.initAppearance()
     }
 
-	@IBAction private func sendButtonPressed(_ sender: Any) {
-		guard let text = textField.text, !text.isEmpty else {
-			return
-		}
+	func setupBindings() {
+		sendButton.rx.tap
+			.bind { [weak self] in self?.viewModel.sendButtonPressed() }
+			.disposed(by: disposeBag)
 
-		var task = viewModel
-		task.description = text
-		task.date = datePicker.date
-		presenter.sendButtonPressed(viewModel: task)
-	}
+		textField.rx.text.orEmpty
+			.bind(to: viewModel.taskSubject)
+			.disposed(by: disposeBag)
 
-	func initAppearance() {
-		switch scope {
-		case .edit(let task):
-			textField.text = task.description
-			datePicker.date = task.date
-		default:
-			break
-		}
-	}
-}
+		viewModel.taskSubject
+			.bind(to: textField.rx.text)
+			.disposed(by: disposeBag)
 
-extension TaskDetailsViewController: TaskDetailsViewProtocol {
+		datePicker.rx.date
+			.bind(to: viewModel.dateSubject)
+			.disposed(by: disposeBag)
 
-	var isNewTask: Bool {
-		if case .create = scope {
-			return true
-		}
+		viewModel.dateSubject
+			.bind(to: datePicker.rx.date)
+			.disposed(by: disposeBag)
 
-		return false
-	}
-
-	func invalidateView() {
-		textField.text = ""
-		datePicker.date = Date()
+		viewModel.onPersistTask
+			.subscribe(onNext: { [weak self] in
+				self?.textField.text = ""
+				self?.datePicker.date = Date()
+			})
+			.disposed(by: disposeBag)
 	}
 }

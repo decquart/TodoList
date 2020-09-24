@@ -41,7 +41,7 @@ final class CategoryDetailsViewModel {
 	}
 
 	func saveTapped() {
-		Observable.zip(categoryName, selectedImage, selectedColor).asObservable()
+		Observable.zip(categoryName, selectedImage, selectedColor)
 			.flatMap { name, imagePath, color -> Observable<Category> in
 				return Observable.create { observer in
 					let disposable = Disposables.create()

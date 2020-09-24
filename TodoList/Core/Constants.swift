@@ -6,6 +6,7 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
+typealias Completion = () -> Void
 typealias ScopeCategoryHandler = (Scope<CategoryViewModel>) -> Void
 typealias TaskHandler = (Category) -> Void
-typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>) -> Void)
+typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>, Completion?) -> Void)

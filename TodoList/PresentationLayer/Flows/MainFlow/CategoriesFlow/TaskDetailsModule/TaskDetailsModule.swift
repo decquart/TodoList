@@ -12,14 +12,21 @@ final class TaskDetailsModule {
 	func build(with category: Category, and scope: Scope<TaskViewModel>, onDismiss: Completion?, onAddTask: Completion?) -> UIViewController {
 		let view = TaskDetailsViewController.instantiate(storyboard: .taskDetails)
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-		let interactor = TaskDetailsInteractor(repository: repository)
-		let presenter = TaskDetailsPresenter(view: view, interactor: interactor)
+		let viewModel = TaskDetailsViewModel(repository: repository, scope: scope)
 
-		view.presenter = presenter
-		view.scope = scope
-		interactor.output = presenter
-		presenter.onDismiss = onDismiss
-		presenter.onAddTask = onAddTask
+		view.viewModel = viewModel
+
+		viewModel.onDismiss
+			.subscribe(onNext: {
+				onDismiss?()
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		viewModel.onPersistTask
+			.subscribe(onNext: {
+				onAddTask?()
+			})
+			.disposed(by: viewModel.disposeBag)
 
 		return view
 	}

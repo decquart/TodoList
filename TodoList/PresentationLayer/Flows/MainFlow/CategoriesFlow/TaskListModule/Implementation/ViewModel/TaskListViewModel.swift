@@ -13,22 +13,31 @@ import RxRelay
 final class TaskListViewModel {
 
 	private let repository: AnyRepository<Task>
-	private let categoryId: String
+	private let category: Category
 
 	let disposeBag = DisposeBag()
 	var tasks = BehaviorRelay<[TaskViewModel]>(value: [])
 
 	let onPresentDetails = PublishSubject<Scope<TaskViewModel>>()
-
 	let onReload = PublishSubject<Void>()
 
-	init(repository: AnyRepository<Task>, categoryId: String) {
+	var onPresent: TaskDetailsHandler?
+
+	init(repository: AnyRepository<Task>, category: Category) {
 		self.repository = repository
-		self.categoryId = categoryId
+		self.category = category
+
+		onPresentDetails
+			.subscribe(onNext: { [weak self] scope in
+				self?.onPresent?(category, scope) {
+					self?.loadTasks()
+				}
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func loadTasks() {
-		let predicate = NSPredicate(format: "ANY owner.id == %@", categoryId)
+		let predicate = NSPredicate(format: "ANY owner.id == %@", category.id)
 
 		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(items) = result {

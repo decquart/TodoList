@@ -41,7 +41,8 @@
 		2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01199B24C0B43F0097E74D /* ThemesViewController.swift */; };
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
-		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
+		2D13DCF3251D0F49003BEB26 /* TaskDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13DCF2251D0F49003BEB26 /* TaskDetailsViewModel.swift */; };
+		2D13DCFE251D1AC1003BEB26 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13DCFD251D1AC1003BEB26 /* InsetTextField.swift */; };
 		2D2C737E250D18A60077E418 /* InteractivePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */; };
 		2D39DC0624D2107E00E27522 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0524D2107E00E27522 /* Routable.swift */; };
 		2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* MainRouter.swift */; };
@@ -79,8 +80,6 @@
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */; };
 		2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */; };
-		2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */; };
-		2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
 		2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190524F9BCE8008B7E6F /* RegistrationViewController.swift */; };
 		2D52190A24F9BD44008B7E6F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D52190924F9BD44008B7E6F /* Registration.storyboard */; };
@@ -108,8 +107,6 @@
 		2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */; };
 		2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C824BD0BE300A04190 /* TaskListModule.swift */; };
 		2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */; };
-		2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */; };
-		2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */; };
 		2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DA24BD13F300A04190 /* SettingsModule.swift */; };
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
@@ -210,7 +207,8 @@
 		2D01199B24C0B43F0097E74D /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
-		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
+		2D13DCF2251D0F49003BEB26 /* TaskDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewModel.swift; sourceTree = "<group>"; };
+		2D13DCFD251D1AC1003BEB26 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePresentationController.swift; sourceTree = "<group>"; };
 		2D39DC0524D2107E00E27522 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		2D39DC0A24D2168E00E27522 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -241,8 +239,6 @@
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsUseCase.swift; sourceTree = "<group>"; };
-		2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsInteractor.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
 		2D52190524F9BCE8008B7E6F /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2D52190924F9BD44008B7E6F /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
@@ -270,8 +266,6 @@
 		2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsModule.swift; sourceTree = "<group>"; };
 		2D82A0C824BD0BE300A04190 /* TaskListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModule.swift; sourceTree = "<group>"; };
 		2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsModule.swift; sourceTree = "<group>"; };
-		2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewProtocol.swift; sourceTree = "<group>"; };
-		2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0DA24BD13F300A04190 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
@@ -483,6 +477,7 @@
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D56825F24DC63E700F693EC /* TabBarController.swift */,
 				2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */,
+				2D13DCFD251D1AC1003BEB26 /* InsetTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,7 +621,6 @@
 			children = (
 				2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */,
 				2D82A0D424BD105800A04190 /* Implementation */,
-				2D82A0D324BD104A00A04190 /* Protocols */,
 			);
 			path = TaskDetailsModule;
 			sourceTree = "<group>";
@@ -640,18 +634,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2D0CBC7724A957C300AC23F6 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		2D13DCED251D0CCC003BEB26 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D13DCF6251D0F4F003BEB26 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D13DCF2251D0F49003BEB26 /* TaskDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -811,14 +805,6 @@
 			path = MainFlow;
 			sourceTree = "<group>";
 		};
-		2D51EBDA24FC6D6900FA92A0 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		2D5218FB24F9BB75008B7E6F /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,22 +915,11 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		2D82A0D324BD104A00A04190 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */,
-				2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */,
-				2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		2D82A0D424BD105800A04190 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
 				2D0CBC7424A956B900AC23F6 /* View */,
-				2D51EBDA24FC6D6900FA92A0 /* Interactor */,
-				2D0CBC7724A957C300AC23F6 /* Presenter */,
+				2D13DCF6251D0F4F003BEB26 /* ViewModel */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1224,7 +1199,6 @@
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
-				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */,
 				2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */,
@@ -1238,12 +1212,12 @@
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */,
 				2DBFE4DC2517A2060041407E /* RegistrationCredentials.swift in Sources */,
 				2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */,
-				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */,
 				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
+				2D13DCF3251D0F49003BEB26 /* TaskDetailsViewModel.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
 				2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */,
@@ -1254,6 +1228,7 @@
 				2DBFE4E5251886500041407E /* Constants.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
+				2D13DCFE251D1AC1003BEB26 /* InsetTextField.swift in Sources */,
 				2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */,
 				2D48791225058B4800E5DFB0 /* RegularTableViewCell.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
@@ -1272,13 +1247,10 @@
 				2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
-				2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2DB74B0B24CA35190076CE43 /* Color.swift in Sources */,
-				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
-				2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2D88E65A24F82C240093C9C6 /* User.swift in Sources */,
 				2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */,

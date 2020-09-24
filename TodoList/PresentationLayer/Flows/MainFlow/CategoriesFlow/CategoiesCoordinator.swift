@@ -44,11 +44,11 @@ private extension CategoiesCoordinator {
 		self.router.push(module)
 	}
 
-	func showTaskDetails(category: Category, scope: Scope<TaskViewModel>) {
+	func showTaskDetails(category: Category, scope: Scope<TaskViewModel>, onAddTask: Completion?) {
 		let module = TaskDetailsModule().build(with: category,
 											   and: scope,
 											   onDismiss: router.dismiss,
-											   onAddTask: nil)
+											   onAddTask: onAddTask)
 
 		self.router.presentInteractiveScreen(module)
 	}
