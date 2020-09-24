@@ -10,7 +10,7 @@ import UIKit
 
 struct TaskViewModel {
 	private var id: String = UUID().uuidString
-	private var isCompleted: Bool = false
+	var isCompleted: Bool = false
 	var description: String = ""
 	var date: Date = Date()
 	var isImportant: Bool = false

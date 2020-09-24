@@ -7,77 +7,74 @@
 //
 
 import UIKit
+import RxSwift
 
-class TaskListViewController: UIViewController {
-	var presenter: TaskListPresenterProtocol!
+class TaskListViewController: UIViewController, UITableViewDelegate {
+	var viewModel: TaskListViewModel!
+	let disposseBag = DisposeBag()
 
+	lazy var completeAllBarItem = {
+		return UIBarButtonItem(title: "Complete All", style: .plain, target: nil, action: nil)
+	}()
+
+	@IBOutlet weak var addButton: AddButton!
 	@IBOutlet weak private var tableView: UITableView! {
 		didSet {
-			tableView.delegate = self
-			tableView.dataSource = self
+			tableView.rx
+				.setDelegate(self)
+				.disposed(by: disposseBag)
 		}
 	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		self.navigationItem.rightBarButtonItem = completeAllBarItem
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
+		setupBindings()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-
 		self.navigationItem.title = "Tasks"
-		presenter?.loadTasks()
-	}
-}
 
-// MARK: - TaskListViewInput
-extension TaskListViewController: TaskListViewProtocol {
-	func refreshTasks() {
-		tableView.reloadData()
-	}
-}
-
-// MARK: - Selectors
-extension TaskListViewController {
-	@objc func completeAll() {
-		presenter?.didCompleteAll()
-	}
-}
-
-// MARK: - UITableViewDelegate, UITableViewDataSource
-extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.numberOfRows() ?? 0
+		viewModel.loadTasks()
 	}
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeue(cellType: TaskCell.self, for: indexPath)
-		guard let task = presenter?.task(at: indexPath) else {
-			return UITableViewCell()
+	func setupBindings() {
+		completeAllBarItem.rx.tap
+			.subscribe(onNext: { [weak self] in
+				self?.viewModel.completeAllUnfinished()
+			})
+			.disposed(by: disposseBag)
+
+		viewModel.tasks.bind(to: tableView.rx.items(cellIdentifier: "TaskCell", cellType: TaskCell.self)) { row, task, cell in
+			cell.configure(with: task)
+
+			cell.checkButton.rx.tap
+				.bind { [weak self] in self?.viewModel.setCompleted(task) }
+				.disposed(by: cell.disposeBag)
+
+			cell.importantButton.rx.tap
+				.bind { [weak self] in self?.viewModel.setAsImportant(task) }
+				.disposed(by: cell.disposeBag)
 		}
+		.disposed(by: disposseBag)
 
-		cell.configure(with: task)
-		cell.checkButtonPressedCallback = { [weak self] in
-			self?.presenter.buttonCompletePressed(at: indexPath.row)
-		}
+		Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(TaskViewModel.self))
+			.subscribe(onNext: { [weak self] in
+				self?.tableView.deselectRow(at: $0, animated: true)
+				self?.viewModel.onPresentDetails.onNext(.edit(model: $1))
+			})
+			.disposed(by: disposseBag)
 
-		cell.importantButtonPressedCallback = { [weak self] in
-			self?.presenter.buttonImportantPressed(at: indexPath.row)
-		}
+		addButton.rx.tap
+			.bind { [weak self] in self?.viewModel.onPresentDetails.onNext(.create) }
+			.disposed(by: disposseBag)
 
-		return cell
-	}
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter?.didSelect(at: indexPath)
-		tableView.deselectRow(at: indexPath, animated: true)
-	}
-}
-
-extension TaskListViewController {
-	@IBAction func addButtonPressed(_ sender: UIButton) {
-		presenter?.addButtonPressed()
+		viewModel.onReload
+			.subscribe(onNext: { [weak self] in
+				self?.tableView.reloadData()
+			})
+			.disposed(by: disposseBag)
 	}
 }

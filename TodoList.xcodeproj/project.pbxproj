@@ -32,7 +32,6 @@
 		04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1224801A5F0048336E /* CategoryListViewController.swift */; };
 		04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1E24801F680048336E /* CategoryCollectionViewCell.swift */; };
 		04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD202480317B0048336E /* TaskListViewController.swift */; };
-		04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD2524805BC80048336E /* TaskListPresenter.swift */; };
 		04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9BC33248E4B6E00DC0AE8 /* TaskCell.swift */; };
 		2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */; };
 		2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195F24BF825A0097E74D /* ColorPickerView.swift */; };
@@ -80,8 +79,6 @@
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */; };
 		2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */; };
-		2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */; };
-		2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */; };
 		2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */; };
 		2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
@@ -109,8 +106,6 @@
 		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
 		2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */; };
 		2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */; };
-		2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */; };
-		2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */; };
 		2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C824BD0BE300A04190 /* TaskListModule.swift */; };
 		2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */; };
 		2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */; };
@@ -157,6 +152,7 @@
 		2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */; };
 		2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */; };
 		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
+		2DF8D151251BCACF0002E014 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 		2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */; };
@@ -205,7 +201,6 @@
 		04EFFD1224801A5F0048336E /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		04EFFD1E24801F680048336E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04EFFD202480317B0048336E /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
-		04EFFD2524805BC80048336E /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
 		04F9BC33248E4B6E00DC0AE8 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
 		2D01195F24BF825A0097E74D /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
@@ -246,8 +241,6 @@
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListUseCase.swift; sourceTree = "<group>"; };
-		2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
 		2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsUseCase.swift; sourceTree = "<group>"; };
 		2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsInteractor.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
@@ -275,8 +268,6 @@
 		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackHolder.swift; sourceTree = "<group>"; };
 		2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsModule.swift; sourceTree = "<group>"; };
-		2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C824BD0BE300A04190 /* TaskListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModule.swift; sourceTree = "<group>"; };
 		2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsModule.swift; sourceTree = "<group>"; };
 		2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewProtocol.swift; sourceTree = "<group>"; };
@@ -322,6 +313,7 @@
 		2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenter.swift; sourceTree = "<group>"; };
 		2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerModule.swift; sourceTree = "<group>"; };
 		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 		2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
@@ -532,7 +524,6 @@
 			children = (
 				2D82A0C824BD0BE300A04190 /* TaskListModule.swift */,
 				2D82A0C124BD0A9000A04190 /* Implementation */,
-				2D82A0C024BD0A8500A04190 /* Protocols */,
 			);
 			path = TaskListModule;
 			sourceTree = "<group>";
@@ -545,14 +536,6 @@
 				04F9BC33248E4B6E00DC0AE8 /* TaskCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		04EFFD2724805BCC0048336E /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				04EFFD2524805BC80048336E /* TaskListPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		2D01195624BF81390097E74D /* Protocols */ = {
@@ -663,6 +646,14 @@
 				2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D13DCED251D0CCC003BEB26 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2D39DC0424D2104900E27522 /* Coordinator */ = {
@@ -820,14 +811,6 @@
 			path = MainFlow;
 			sourceTree = "<group>";
 		};
-		2D51EBD524FC613400FA92A0 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		2D51EBDA24FC6D6900FA92A0 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,22 +920,11 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		2D82A0C024BD0A8500A04190 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */,
-				2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */,
-				2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		2D82A0C124BD0A9000A04190 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
 				04EFFD23248031940048336E /* View */,
-				04EFFD2724805BCC0048336E /* Presenter */,
-				2D51EBD524FC613400FA92A0 /* Interactor */,
+				2D13DCED251D0CCC003BEB26 /* ViewModel */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1277,7 +1249,6 @@
 				2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
-				2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
 				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2DBFE4E5251886500041407E /* Constants.swift in Sources */,
@@ -1285,7 +1256,6 @@
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
 				2DBFE4D9251794170041407E /* RegistrationViewModel.swift in Sources */,
 				2D48791225058B4800E5DFB0 /* RegularTableViewCell.swift in Sources */,
-				2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
 				2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */,
@@ -1299,7 +1269,6 @@
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
 				2DBFE4DE2517BB990041407E /* CategoryListViewModel.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
-				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
 				2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
@@ -1320,10 +1289,8 @@
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */,
 				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
-				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
 				2DBFE4E7251936D80041407E /* CategoryDetailsViewModel.swift in Sources */,
 				2D52191224FA77EB008B7E6F /* SignUpViewModel.swift in Sources */,
-				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
 				04BCAB822498136C00A38846 /* CategoryMO+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* CategoryDetailsViewController.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
@@ -1343,6 +1310,7 @@
 				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
+				2DF8D151251BCACF0002E014 /* TaskListViewModel.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				2D47FD482514177D008BB087 /* LoginViewModel.swift in Sources */,
 				2D2C737E250D18A60077E418 /* InteractivePresentationController.swift in Sources */,

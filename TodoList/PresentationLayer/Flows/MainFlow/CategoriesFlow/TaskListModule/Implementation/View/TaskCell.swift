@@ -7,22 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 class TaskCell: UITableViewCell {
-	var checkButtonPressedCallback: (() -> Void)?
-	var importantButtonPressedCallback: (() -> Void)?
+	private(set) var disposeBag = DisposeBag()
 
 	@IBOutlet weak private var descriptionLabel: UILabel!
-	@IBOutlet weak private var checkButton: UIButton!
+	@IBOutlet weak var checkButton: UIButton!
 	@IBOutlet weak var importantButton: UIButton!
 	@IBOutlet weak var dateLabel: UILabel!
 
-	@IBAction private func checkButtonPressed(_ sender: UIButton) {
-		checkButtonPressedCallback?()
-	}
+	override func prepareForReuse() {
+		super.prepareForReuse()
 
-	@IBAction func importantButtonPressed(_ sender: Any) {
-		importantButtonPressedCallback?()
+		disposeBag = DisposeBag()
 	}
 
 	func configure(with viewModel: TaskViewModel) {

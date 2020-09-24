@@ -8,3 +8,4 @@
 
 typealias ScopeCategoryHandler = (Scope<CategoryViewModel>) -> Void
 typealias TaskHandler = (Category) -> Void
+typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>) -> Void)
