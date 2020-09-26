@@ -71,7 +71,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
 		super.viewDidLoad()
 
 		setupBindings()
-		viewModel.loadData()
+		viewModel.reloadData()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -93,12 +93,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
 			.subscribe(onNext: { [weak self] in
 				self?.tableView.deselectRow(at: $0, animated: false)
 				self?.viewModel.onSelectIndexPath.onNext($0)
-			})
-			.disposed(by: disposeBag)
-
-		viewModel.onReloadView
-			.subscribe(onNext: { [weak self] in
-				self?.tableView.reloadData()
 			})
 			.disposed(by: disposeBag)
 

@@ -27,7 +27,6 @@ final class SettingsViewModel {
 	let didLogOut = PublishSubject<Void>()
 	let onSelectPhotoCell = PublishSubject<Void>()
 
-	let onReloadView = PublishSubject<Void>()
 	var onTheme: ((Completion?) -> Void)?
 
 	init(session: UserSessionProtocol, themeService: ThemeServiceProtocol, repository: AnyRepository<User>) {
@@ -44,8 +43,7 @@ final class SettingsViewModel {
 		.disposed(by: disposeBag)
 	}
 
-	func loadData() {
-
+	func reloadData() {
 		fetchCurrentUser()
 			.flatMap { [unowned self] user -> Observable<[SettingsSection]> in
 				guard let user = user else {
@@ -91,7 +89,7 @@ final class SettingsViewModel {
 			}
 			.subscribe(onNext: { [weak self] success in
 				if success {
-					self?.loadData()
+					self?.reloadData()
 				}
 			})
 			.disposed(by: disposeBag)
@@ -124,7 +122,7 @@ final class SettingsViewModel {
 			}
 		case .color:
 			onTheme?{ [weak self] in
-				self?.onReloadView.onNext(())
+				self?.reloadData()
 			}
 		case .photo(_, let type):
 			if type == .profile {

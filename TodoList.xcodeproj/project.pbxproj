@@ -142,19 +142,15 @@
 		2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */; };
 		2DC87901250AD71E00B37CF5 /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */; };
 		2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */; };
-		2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */; };
-		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
-		2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */; };
-		2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */; };
 		2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */; };
 		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
 		2DF8D151251BCACF0002E014 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */; };
 		2DF922AE251F86CD00711CA4 /* SettingsCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF922AD251F86CD00711CA4 /* SettingsCellType.swift */; };
+		2DF922B4251F87FF00711CA4 /* ThemesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF922B3251F87FF00711CA4 /* ThemesViewModel.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 		2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */; };
 		2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132E24C4F60B006D0EA6 /* Keychain.swift */; };
-		2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,19 +294,15 @@
 		2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellModel.swift; sourceTree = "<group>"; };
 		2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
 		2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Launch.swift"; sourceTree = "<group>"; };
-		2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenterProtocol.swift; sourceTree = "<group>"; };
-		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
-		2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesInteractor.swift; sourceTree = "<group>"; };
-		2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenter.swift; sourceTree = "<group>"; };
 		2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerModule.swift; sourceTree = "<group>"; };
 		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DF8D150251BCACF0002E014 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		2DF922AD251F86CD00711CA4 /* SettingsCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellType.swift; sourceTree = "<group>"; };
+		2DF922B3251F87FF00711CA4 /* ThemesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModel.swift; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 		2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		2DFD132E24C4F60B006D0EA6 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,7 +577,7 @@
 			children = (
 				2D5596DF24C187FD00A9F430 /* ThemesModule.swift */,
 				2DFD133724C4FE11006D0EA6 /* Implementation */,
-				2DFD133424C4FD92006D0EA6 /* Protocols */,
+				2DF922B9251FA8AC00711CA4 /* ViewModel */,
 			);
 			path = ThemesModule;
 			sourceTree = "<group>";
@@ -1007,38 +999,18 @@
 			path = ColorCell;
 			sourceTree = "<group>";
 		};
-		2DCA3C6F24FF875300D084F8 /* Interactor */ = {
+		2DF922B9251FA8AC00711CA4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */,
+				2DF922B3251F87FF00711CA4 /* ThemesViewModel.swift */,
 			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		2DCA3C7024FF876400D084F8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		2DFD133424C4FD92006D0EA6 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */,
-				2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */,
-				2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */,
-			);
-			path = Protocols;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2DFD133724C4FE11006D0EA6 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
 				2D01199824C0B3B60097E74D /* View */,
-				2DCA3C6F24FF875300D084F8 /* Interactor */,
-				2DCA3C7024FF876400D084F8 /* Presenter */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1178,11 +1150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
-				2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D13DD04251D3B63003BEB26 /* SettingsViewModel.swift in Sources */,
@@ -1207,7 +1177,6 @@
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
-				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2DBFE4E5251886500041407E /* Constants.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
@@ -1255,7 +1224,6 @@
 				2D48793325075D4B00E5DFB0 /* SettingsTableViewCell.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
-				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,
 				2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */,
 				2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
@@ -1263,6 +1231,7 @@
 				2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
+				2DF922B4251F87FF00711CA4 /* ThemesViewModel.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
 				2DF8D151251BCACF0002E014 /* TaskListViewModel.swift in Sources */,
@@ -1282,7 +1251,6 @@
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
 				2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */,
-				2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */,
 				2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */,
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,

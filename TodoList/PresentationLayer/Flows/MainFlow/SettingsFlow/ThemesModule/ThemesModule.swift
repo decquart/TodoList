@@ -11,16 +11,30 @@ import UIKit
 class ThemesModule {
 	func build(onDismiss: Completion?, onApplyColor: Completion?) -> UIViewController {
 		let view = ThemesViewController.instantiate(storyboard: .themes)
-		let interactor = ThemesInteractor(themeService: ThemeService.shared)
-		let presenter = ThemesPresenter(view: view, interactor: interactor)
-		let selectedColor = ThemeService.shared.applicationColor
-		let colorPickerView = ColorPickerModule().build(selectedColor: selectedColor)
+		let viewModel = ThemesViewModel(themeService: ThemeService.shared)
+		let colorsSubview = ColorPickerModule().build(selectedColor: ThemeService.shared.applicationColor)
 
-		presenter.onDismiss = onDismiss
-		presenter.onApplyColor = onApplyColor
-		view.colorPickerView = colorPickerView
-		view.presenter = presenter
-		interactor.output = presenter
+		view.colorPickerView = colorsSubview
+		view.viewModel = viewModel
+
+		colorsSubview.onSelectColor
+			.subscribe(onNext: {
+				viewModel.selectedColor.onNext($0)
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		viewModel.didApplyColor
+			.subscribe(onNext: { _ in 
+				onApplyColor?()
+			})
+			.disposed(by: viewModel.disposeBag)
+
+		viewModel.onDismiss
+			.subscribe(onNext: {
+				onDismiss?()
+			})
+			.disposed(by: viewModel.disposeBag)
+
 		return view
 	}
 }

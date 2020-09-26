@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class ThemesViewController: UIViewController {
-	var presenter: ThemesPresenterProtocol!
+	var viewModel: ThemesViewModel!
 	var colorPickerView: UIView!
+
+	let disposeBag = DisposeBag()
 
 	@IBOutlet weak private var colorPickerContainerView: UIView!
 	@IBOutlet weak var closeButton: UIButton!
@@ -23,24 +26,25 @@ class ThemesViewController: UIViewController {
 			colorPickerContainerView.add(colorView)
 		}
 
-		presenter.viewDodLoad()
+		setupBindings()
+		viewModel.viewDodLoad()
     }
 
-	@IBAction func applyButtonPressed(_ sender: Any) {
-		presenter.applyTheme()
-	}
+	func setupBindings() {
+		viewModel.selectedColor
+			.subscribe(onNext: { [weak self] in
+				self?.closeButton.tintColor = $0.uiColor
+				self?.applyButton.tintColor = $0.uiColor
+				self?.navigationController?.tabBarController?.tabBar.tintColor = $0.uiColor
+			})
+			.disposed(by: disposeBag)
 
-	@IBAction func closeButtonPressed(_ sender: Any) {
-		presenter.close()
-	}
-}
+		applyButton.rx.tap
+			.bind { [weak self] in self?.viewModel.applySelectedColor() }
+			.disposed(by: disposeBag)
 
-//MARK: - ThemesViewProtocol
-extension ThemesViewController: ThemesViewProtocol {
-
-	func updateButtonsColor(_ color: Color) {
-		closeButton.tintColor = color.uiColor
-		applyButton.tintColor = color.uiColor
-		self.navigationController?.tabBarController?.tabBar.tintColor = color.uiColor
+		closeButton.rx.tap
+			.bind { [weak self] in self?.viewModel.onDismiss.onNext(()) }
+			.disposed(by: disposeBag)
 	}
 }
