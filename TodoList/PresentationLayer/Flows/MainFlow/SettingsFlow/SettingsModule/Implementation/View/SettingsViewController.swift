@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
 
-class SettingsViewController: UIViewController {
-	var presenter: SettingsPresenterProtocol!
+class SettingsViewController: UIViewController, UITableViewDelegate {
+	var viewModel: SettingsViewModel!
 
 	var onAccount: (() -> Void)?
 	var onTheme: (() -> Void)?
+
+	let disposeBag = DisposeBag()
 
 	lazy var imagePickerController: UIImagePickerController = {
 		let imagePicker = UIImagePickerController()
@@ -21,21 +25,53 @@ class SettingsViewController: UIViewController {
 		return imagePicker
 	}()
 
+	private lazy var dataSource = RxTableViewSectionedReloadDataSource<SettingsSection>(
+		configureCell: { dataSource, tableView, indexPath, item in
+
+			switch item {
+			case .photo(let model, _):
+				let cell = tableView.dequeue(cellType: PhotoTableViewCell.self, for: indexPath)
+				cell.configure(with: model)
+				return cell
+			case .regular(let model, _):
+				let cell = tableView.dequeue(cellType: RegularTableViewCell.self, for: indexPath)
+				cell.configure(with: model)
+				return cell
+			case .switch(let model, _):
+				let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
+				cell.configure(with: model)
+				return cell
+			case .icon(let model, _):
+				let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
+				cell.configure(with: model)
+				return cell
+			case .color(let model):
+				let cell = tableView.dequeue(cellType: ColorTableViewCell.self, for: indexPath)
+				cell.configure(with: model)
+				return cell
+			}
+	})
+
+
 	@IBOutlet weak var tableView: UITableView! {
 		didSet {
-			tableView.delegate = self
-			tableView.dataSource = self
 			tableView.registerNib(cellType: PhotoTableViewCell.self)
 			tableView.registerNib(cellType: RegularTableViewCell.self)
 			tableView.registerNib(cellType: SwitchTableViewCell.self)
 			tableView.registerNib(cellType: SettingsTableViewCell.self)
 			tableView.registerNib(cellType: ColorTableViewCell.self)
+
+			tableView.rx
+				.setDelegate(self)
+				.disposed(by: disposeBag)
 		}
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		presenter.viewDidLoad()
+
+		setupBindings()
+		viewModel.loadData()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -43,62 +79,37 @@ class SettingsViewController: UIViewController {
 		self.navigationController?.navigationBar.topItem?.title = "Settings"
 		self.navigationController?.navigationBar.sizeToFit()
 	}
-}
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
-extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return presenter.numberOfRows(in: section)
-	}
+	func setupBindings() {
+		viewModel.items
+			.bind(to: tableView.rx.items(dataSource: dataSource))
+			.disposed(by: disposeBag)
 
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return presenter.numberOfSections
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cellType = presenter.cellModel(at: indexPath.section, and: indexPath.row)
-
-		switch cellType {
-		case .photo(let model, _):
-			let cell = tableView.dequeue(cellType: PhotoTableViewCell.self, for: indexPath)
-			cell.configure(with: model)
-			return cell
-		case .regular(let model, _):
-			let cell = tableView.dequeue(cellType: RegularTableViewCell.self, for: indexPath)
-			cell.configure(with: model)
-			return cell
-		case .switch(let model, _):
-			let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
-			cell.configure(with: model)
-			return cell
-		case .icon(let model, _):
-			let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
-			cell.configure(with: model)
-			return cell
-		case .color(let model):
-			let cell = tableView.dequeue(cellType: ColorTableViewCell.self, for: indexPath)
-			cell.configure(with: model)
-			return cell
+		dataSource.titleForHeaderInSection = { dataSource, index in
+			return dataSource.sectionModels[index].title
 		}
+
+		tableView.rx.itemSelected
+			.subscribe(onNext: { [weak self] in
+				self?.tableView.deselectRow(at: $0, animated: false)
+				self?.viewModel.onSelectIndexPath.onNext($0)
+			})
+			.disposed(by: disposeBag)
+
+		viewModel.onReloadView
+			.subscribe(onNext: { [weak self] in
+				self?.tableView.reloadData()
+			})
+			.disposed(by: disposeBag)
+
+		viewModel.onSelectPhotoCell
+			.subscribe(onNext: { [weak self] in
+				self?.presentImagePickerController()
+			})
+			.disposed(by: disposeBag)
 	}
 
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter.didSelectTableViewCell(at: indexPath.section, and: indexPath.row)
-		tableView.deselectRow(at: indexPath, animated: true)
-	}
-
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return presenter.titleForHeader(at: section)
-	}
-}
-
-//MARK: - SettingsViewProtocol
-extension SettingsViewController: SettingsViewProtocol {
-	func reloadData() {
-		self.tableView.reloadData()
-	}
-
-	func didSelectPhotoCell() {
+	func presentImagePickerController() {
 		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
 			present(imagePickerController, animated: true, completion: nil)
 		}
@@ -110,7 +121,7 @@ extension SettingsViewController: UINavigationControllerDelegate, UIImagePickerC
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
 		if let image = info[.originalImage] as? UIImage {
-			presenter.didSelectPhoto(image.pngData())
+			viewModel.saveUserImage(image.pngData())
 		}
 
 		self.dismiss(animated: true)
