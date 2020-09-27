@@ -76,5 +76,9 @@ class TaskListViewController: UIViewController, UITableViewDelegate {
 				self?.tableView.reloadData()
 			})
 			.disposed(by: disposseBag)
+
+		tableView.rx.itemDeleted
+			.bind(to: viewModel.onDelete)
+			.disposed(by: disposseBag)
 	}
 }

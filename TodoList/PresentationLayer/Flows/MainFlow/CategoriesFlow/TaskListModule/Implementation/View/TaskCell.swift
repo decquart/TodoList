@@ -16,11 +16,21 @@ class TaskCell: UITableViewCell {
 	@IBOutlet weak var checkButton: UIButton!
 	@IBOutlet weak var importantButton: UIButton!
 	@IBOutlet weak var dateLabel: UILabel!
+	@IBOutlet weak var containerView: UIView!
 
 	override func prepareForReuse() {
 		super.prepareForReuse()
 
 		disposeBag = DisposeBag()
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		containerView.layer.cornerRadius = 12.0
+		containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
+		containerView.layer.shadowRadius = 2.0
+		containerView.layer.shadowOpacity = 0.4
 	}
 
 	func configure(with viewModel: TaskViewModel) {

@@ -18,6 +18,7 @@ final class TaskListViewModel {
 	let disposeBag = DisposeBag()
 	var tasks = BehaviorSubject<[TaskViewModel]>(value: [])
 
+	let onDelete = PublishRelay<IndexPath>()
 	let onPresentDetails = PublishSubject<Scope<TaskViewModel>>()
 	let onReload = PublishSubject<Void>()
 
@@ -34,6 +35,22 @@ final class TaskListViewModel {
 				}
 			})
 			.disposed(by: disposeBag)
+
+	onDelete
+		.map { $0.row }
+		.withLatestFrom(tasks) { row, tasks in
+			return tasks[row]
+		}
+		.map { $0.mapToModel }
+		.flatMap { [unowned self] in
+			return self.delete($0)
+		}
+		.subscribe(onNext: { [weak self] success in
+			if success {
+				self?.loadTasks()
+			}
+		})
+		.disposed(by: disposeBag)
 	}
 
 	func loadTasks() {
@@ -76,6 +93,18 @@ final class TaskListViewModel {
 		var taskModel = task.mapToModel
 		taskModel.isImportant.toggle()
 		update(taskModel)
+	}
+
+	private func delete(_ task: Task) -> Observable<Bool> {
+		return Observable.create { [weak self] observer in
+			let disposable = Disposables.create()
+
+			self?.repository.delete(task) { success in
+				observer.onNext(success)
+			}
+
+			return disposable
+		}
 	}
 
 	private func update(_ task: Task) {

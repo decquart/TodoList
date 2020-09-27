@@ -67,6 +67,16 @@ final class CDTaskRepository: CDRepository<TaskMO, Task> {
 		completion(true)
 	}
 
+	override func delete(_ item: Task, completion: @escaping (Bool) -> Void) {
+		guard let taskMO = get(by: item.uuid) else {
+			return
+		}
+
+		coreDataStack.mainContext.delete(taskMO)
+		coreDataStack.save(context: coreDataStack.mainContext)
+		completion(true)
+	}
+
 	private func get(by id: String) -> TaskMO? {
 		let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "id = %@", id)
