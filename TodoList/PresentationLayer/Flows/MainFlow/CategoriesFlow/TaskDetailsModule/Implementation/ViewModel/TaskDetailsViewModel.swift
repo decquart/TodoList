@@ -22,9 +22,17 @@ final class TaskDetailsViewModel {
 	let onPersistTask = PublishSubject<Void>()
 	let onDismiss = PublishSubject<Void>()
 
+	let isValidSendButton = BehaviorSubject<Bool>(value: false)
+
 	init(repository: AnyRepository<Task>, scope: Scope<TaskViewModel>) {
 		self.repository = repository
 		self.scope = scope
+
+		taskSubject
+			.subscribe(onNext: { [weak self] in
+				self?.isValidSendButton.onNext(!$0.isEmpty)
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func initAppearance() {

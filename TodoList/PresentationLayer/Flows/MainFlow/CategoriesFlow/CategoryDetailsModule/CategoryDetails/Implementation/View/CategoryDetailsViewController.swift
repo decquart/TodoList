@@ -76,6 +76,10 @@ class CategoryDetailsViewController: UIViewController {
 		titleTextField.rx.text.orEmpty
 			.bind(to: viewModel.categoryName)
 			.disposed(by: disposeBag)
+
+		viewModel.isValidSaveButton
+			.bind(to: saveBarButton.rx.isEnabled)
+			.disposed(by: disposeBag)
 	}
 }
 

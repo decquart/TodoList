@@ -60,5 +60,9 @@ final class TaskDetailsViewController: UIViewController {
 				self?.datePicker.date = Date()
 			})
 			.disposed(by: disposeBag)
+
+		viewModel.isValidSendButton
+			.bind(to: sendButton.rx.isEnabled)
+			.disposed(by: disposeBag)
 	}
 }

@@ -24,6 +24,10 @@ final class TaskListViewModel {
 
 	var onPresent: TaskDetailsHandler?
 
+	var categoryName: String {
+		return category.name
+	}
+
 	init(repository: AnyRepository<Task>, category: Category) {
 		self.repository = repository
 		self.category = category
@@ -36,21 +40,21 @@ final class TaskListViewModel {
 			})
 			.disposed(by: disposeBag)
 
-	onDelete
-		.map { $0.row }
-		.withLatestFrom(tasks) { row, tasks in
-			return tasks[row]
-		}
-		.map { $0.mapToModel }
-		.flatMap { [unowned self] in
-			return self.delete($0)
-		}
-		.subscribe(onNext: { [weak self] success in
-			if success {
-				self?.loadTasks()
+		onDelete
+			.map { $0.row }
+			.withLatestFrom(tasks) { row, tasks in
+				return tasks[row]
 			}
-		})
-		.disposed(by: disposeBag)
+			.map { $0.mapToModel }
+			.flatMap { [unowned self] in
+				return self.delete($0)
+			}
+			.subscribe(onNext: { [weak self] success in
+				if success {
+					self?.loadTasks()
+				}
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func loadTasks() {

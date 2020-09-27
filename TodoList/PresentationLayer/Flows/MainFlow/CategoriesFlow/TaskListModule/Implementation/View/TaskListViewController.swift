@@ -35,7 +35,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationItem.title = "Tasks"
+		self.navigationItem.title = viewModel.categoryName
 
 		viewModel.loadTasks()
 	}

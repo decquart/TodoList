@@ -22,11 +22,18 @@ final class CategoryDetailsViewModel {
 	let categoryName = BehaviorSubject<String>(value: "")
 
 	let onDismiss = PublishSubject<Void>()
+	let isValidSaveButton = BehaviorSubject<Bool>(value: false)
 
 
 	init(repository: AnyRepository<Category>, scope: Scope<CategoryViewModel>) {
 		self.repository = repository
 		self.scope = scope
+
+		categoryName
+			.subscribe(onNext: { [weak self] in
+				self?.isValidSaveButton.onNext(!$0.isEmpty)
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func initAppearance() {
