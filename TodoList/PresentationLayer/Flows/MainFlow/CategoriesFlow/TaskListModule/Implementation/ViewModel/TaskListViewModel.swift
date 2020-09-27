@@ -16,7 +16,7 @@ final class TaskListViewModel {
 	private let category: Category
 
 	let disposeBag = DisposeBag()
-	var tasks = BehaviorRelay<[TaskViewModel]>(value: [])
+	var tasks = BehaviorSubject<[TaskViewModel]>(value: [])
 
 	let onPresentDetails = PublishSubject<Scope<TaskViewModel>>()
 	let onReload = PublishSubject<Void>()
@@ -41,32 +41,29 @@ final class TaskListViewModel {
 
 		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(items) = result {
-				self?.tasks.accept(items.map { TaskViewModel(model: $0) })
+				self?.tasks.onNext(items.map { TaskViewModel(model: $0) })
 			}
 		}
 	}
 
 	func completeAllUnfinished() {
-		tasks
-			.flatMap { tasks -> Observable<[Task]> in
-				let unfinished = tasks.filter { !$0.isCompleted }
+		guard let tasks = try? tasks.value() else {
+			return
+		}
 
-				let modified = unfinished.map { task  -> Task in
-					var item = task
-					item.isCompleted.toggle()
-					return item.mapToModel
-				}
-
-				return Observable.just(modified)
+		let modified = tasks
+			.filter { !$0.isCompleted }
+			.map { unfinished -> Task in
+				var modified = unfinished
+				modified.isCompleted.toggle()
+				return modified.mapToModel
 			}
-			.subscribe(onNext: { [weak self] in
-				self?.repository.update($0) { success in
-					if success {
-						self?.loadTasks()
-					}
-				}
-			})
-			.disposed(by: disposeBag)
+
+		self.repository.update(modified) { [weak self] success in
+			if success {
+				self?.loadTasks()
+			}
+		}
 	}
 
 	func setCompleted(_ task: TaskViewModel) {

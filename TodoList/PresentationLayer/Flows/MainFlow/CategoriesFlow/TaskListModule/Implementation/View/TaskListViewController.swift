@@ -47,15 +47,15 @@ class TaskListViewController: UIViewController, UITableViewDelegate {
 			})
 			.disposed(by: disposseBag)
 
-		viewModel.tasks.bind(to: tableView.rx.items(cellIdentifier: "TaskCell", cellType: TaskCell.self)) { row, task, cell in
+		viewModel.tasks.bind(to: tableView.rx.items(cellIdentifier: "TaskCell", cellType: TaskCell.self)) { [weak self] row, task, cell in
 			cell.configure(with: task)
 
 			cell.checkButton.rx.tap
-				.bind { [weak self] in self?.viewModel.setCompleted(task) }
+				.bind { self?.viewModel.setCompleted(task) }
 				.disposed(by: cell.disposeBag)
 
 			cell.importantButton.rx.tap
-				.bind { [weak self] in self?.viewModel.setAsImportant(task) }
+				.bind { self?.viewModel.setAsImportant(task) }
 				.disposed(by: cell.disposeBag)
 		}
 		.disposed(by: disposseBag)
