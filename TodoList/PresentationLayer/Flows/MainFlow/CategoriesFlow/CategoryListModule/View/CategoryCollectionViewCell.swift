@@ -15,7 +15,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet weak private var taskImageView: UIImageView!
 	@IBOutlet weak private var taskNameLabel: UILabel!
-	@IBOutlet weak private var subTaskCountLabel: UILabel!
+	@IBOutlet weak private var taskStatusLabel: UILabel!
 	@IBOutlet weak var editButton: UIButton!
 
 	override func prepareForReuse() {
@@ -39,6 +39,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 		taskImageView.image = viewModel.image
 		taskImageView.tintColor = viewModel.color.uiColor
 		taskNameLabel.text = viewModel.name
-		subTaskCountLabel.text = String(viewModel.taskCount)
+		taskStatusLabel.text = viewModel.taskStatus
 	}
 }

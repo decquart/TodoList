@@ -9,11 +9,10 @@
 import CoreData
 
 final class CDTaskRepository: CDRepository<TaskMO, Task> {
-	let categoryId: String
+	private var categoryId: String?
 
-	init(categoryId: String, coreDataStack: CoreDataStackType) {
+	func setCategoryId(_ categoryId: String) {
 		self.categoryId = categoryId
-		super.init(coreDataStack: coreDataStack)
 	}
 
 	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Task], Error>) -> Void) {
@@ -38,6 +37,11 @@ final class CDTaskRepository: CDRepository<TaskMO, Task> {
 	}
 
 	override func add(_ item: Task, completion: @escaping (Bool) -> Void) {
+
+		guard let categoryId = categoryId else {
+			preconditionFailure("Please set category id")
+		}
+
 		let categoryFetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
 		categoryFetchRequest.predicate = NSPredicate(format: "id = %@", categoryId)
 

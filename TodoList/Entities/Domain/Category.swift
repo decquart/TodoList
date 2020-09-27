@@ -23,3 +23,9 @@ struct Category: Decodable {
 		self.tasksCount = subtasksCount
 	}
 }
+
+extension Category: Hashable {
+	static func == (lhs: Category, rhs: Category) -> Bool {
+		return lhs.id == rhs.id
+	}
+}

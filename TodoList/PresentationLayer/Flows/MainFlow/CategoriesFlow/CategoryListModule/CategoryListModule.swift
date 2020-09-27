@@ -13,8 +13,9 @@ final class CategoryListModule {
 	func build(onShowCategoryDetails: ScopeCategoryHandler?, onPresent: TaskHandler?) -> UIViewController {
 		let view = CategoryListViewController.instantiate(storyboard: .main)
 		let coreDataStack = CoreDataStackHolder.shared.coreDataStack
-		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let viewModel = CategoryListViewModel(repository: repository)
+		let categoryRepository = CDCategoryRepository(coreDataStack: coreDataStack)
+		let taskRepository = CDTaskRepository(coreDataStack: coreDataStack)
+		let viewModel = CategoryListViewModel(categoryRepository: categoryRepository, taskRepository: taskRepository)
 
 		viewModel.onEditCategory
 			.subscribe(onNext: {

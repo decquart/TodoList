@@ -14,6 +14,7 @@ struct CategoryViewModel {
 	var imagePath: String = ""
 	var colorName: String = ""
 	var taskCount: Int = 0
+	var completedTaskCount: Int = 0
 
 	var image: UIImage? {
 		return UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
@@ -23,14 +24,23 @@ struct CategoryViewModel {
 		return Color(rawValue: colorName)!
 	}
 
+	var taskStatus: String {
+		if taskCount == 0 {
+			return "None"
+		}
+
+		return "\(completedTaskCount) / \(taskCount)"
+	}
+
 	init() {}
 
-	init(model: Category, taskCount: Int = 0) {
+	init(model: Category, taskCount: Int = 0, completedTaskCount: Int = 0) {
 		self.id = model.id
 		self.imagePath = model.imagePath
 		self.name = model.name
 		self.colorName = model.colorName
 		self.taskCount = taskCount
+		self.completedTaskCount = completedTaskCount
 	}
 }
 

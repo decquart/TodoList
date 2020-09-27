@@ -11,7 +11,8 @@ import UIKit
 final class TaskListModule {
 	func build(category: Category, onPresent: TaskDetailsHandler?) -> UIViewController {
 		let view = TaskListViewController.instantiate(storyboard: .task)
-		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		let repository = CDTaskRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		repository.setCategoryId(category.id)
 		let viewModel = TaskListViewModel(repository: repository, category: category)
 
 		view.viewModel = viewModel

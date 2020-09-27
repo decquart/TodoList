@@ -88,9 +88,9 @@
                                         <size key="customSize" width="180" height="180"/>
                                         <connections>
                                             <outlet property="editButton" destination="yLj-Zy-xP1" id="bvL-ze-B5K"/>
-                                            <outlet property="subTaskCountLabel" destination="7ew-Pv-HFJ" id="vVm-oH-rIf"/>
                                             <outlet property="taskImageView" destination="fHN-So-h3h" id="fSc-7Y-Tn5"/>
                                             <outlet property="taskNameLabel" destination="cNY-rx-TqH" id="4T5-vC-IuC"/>
+                                            <outlet property="taskStatusLabel" destination="7ew-Pv-HFJ" id="vVm-oH-rIf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

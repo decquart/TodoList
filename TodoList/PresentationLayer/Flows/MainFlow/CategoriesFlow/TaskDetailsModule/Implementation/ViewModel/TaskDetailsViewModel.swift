@@ -63,6 +63,8 @@ final class TaskDetailsViewModel {
 				case .edit:
 					self.update(task: $0)
 				}
+
+				self.taskSubject.onNext("")
 			})
 			.disposed(by: disposeBag)
 

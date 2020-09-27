@@ -11,7 +11,8 @@ import RxSwift
 
 final class CategoryListViewModel {
 
-	private let repository: AnyRepository<Category>
+	private let categoryRepository: AnyRepository<Category>
+	private let taskRepository: AnyRepository<Task>
 
 	let categoryModels = PublishSubject<[CategoryViewModel]>()
 
@@ -23,17 +24,12 @@ final class CategoryListViewModel {
 
 	let disposeBag = DisposeBag()
 
-	//todo: reconsider
-	private var categories: [Category] = [] {
-		didSet {
-			categoryModels.onNext(categories.map {
-				return CategoryViewModel(model: $0, taskCount: $0.tasksCount)
-			})
-		}
-	}
+	private var categories: [Category] = []
+	private let groupedCategoriesWithTasks = BehaviorSubject<[Category: [Task]]>(value: [:])
 
-	init(repository: AnyRepository<Category>) {
-		self.repository = repository
+	init(categoryRepository: AnyRepository<Category>, taskRepository: AnyRepository<Task>) {
+		self.categoryRepository = categoryRepository
+		self.taskRepository = taskRepository
 
 		Observable.zip(onEditIndex, categoryModels)
 			.map { index, models in
@@ -50,15 +46,64 @@ final class CategoryListViewModel {
 				self?.onSelectCategory.onNext(category)
 			})
 			.disposed(by: disposeBag)
+
+		groupedCategoriesWithTasks
+			.flatMap { tasks -> Observable<[CategoryViewModel]> in
+				let categoryModels = tasks.map { category, tasks -> CategoryViewModel in
+					let taskCount = tasks.count
+					let completedTaskCount = tasks.filter { $0.completed }.count
+
+					return CategoryViewModel(model: category,
+											 taskCount: taskCount,
+											 completedTaskCount: completedTaskCount)
+				}
+
+				return .just(categoryModels.sorted { $0.name.lowercased() < $1.name.lowercased() })
+			}
+			.subscribe(onNext: { [weak self] in
+				self?.categoryModels.onNext($0)
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func loadCategories() {
-		repository.fetch(where: nil) { [weak self] result in
+		categoryRepository.fetch(where: nil) { [weak self] result in
 			switch result {
 			case .success(let categories):
-				self?.categories = categories
+				self?.categories = categories.sorted { $0.name.lowercased() < $1.name.lowercased() }
+				self?.fetchTasks(for: categories)
 			case .failure(_):
 				break
+			}
+		}
+	}
+
+	func fetchTasks(for categories: [Category]) {
+		let ids = categories.map { $0.id }
+		var groupedTasks: [Category: [Task]] = [:]
+
+		let dispatchGroup = DispatchGroup()
+
+		DispatchQueue.main.async(group: dispatchGroup) { [weak self] in
+			for id in ids {
+				let predicate = NSPredicate(format: "ANY owner.id == %@", id)
+				dispatchGroup.enter()
+
+				self?.taskRepository.fetch(where: predicate) { result in
+					switch result {
+					case .success(let task):
+						let category = categories.first { $0.id == id }!
+						groupedTasks[category] = task
+					default:
+						break
+					}
+
+					dispatchGroup.leave()
+				}
+			}
+
+			dispatchGroup.notify(queue: .main) {
+				self?.groupedCategoriesWithTasks.onNext(groupedTasks)
 			}
 		}
 	}
@@ -66,7 +111,7 @@ final class CategoryListViewModel {
 	func removeItem(at index: Int) {
 		let category = categories[index]
 
-		repository.delete(category) { success in
+		categoryRepository.delete(category) { success in
 			if success {
 				self.categories = self.categories.filter { category.id != $0.id }
 			}
