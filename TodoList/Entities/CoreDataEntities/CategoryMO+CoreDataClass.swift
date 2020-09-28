@@ -18,11 +18,14 @@ public class CategoryMO: NSManagedObject {
 // MARK: - Mappable
 extension CategoryMO: Mappable {
 	var mapToModel: Category {
+		let completedCount = tasks.filter { $0.completed }.count
+
 		return Category(id: id,
 					name: name,
 					imagePath: imagePath,
 					colorName: colorName,
-					subtasksCount: tasks.count)
+					tasksCount: tasks.count,
+					completedTaskCount: completedCount)
 	}
 
 	func map(_ entity: Category) {

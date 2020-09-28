@@ -34,13 +34,13 @@ struct CategoryViewModel {
 
 	init() {}
 
-	init(model: Category, taskCount: Int = 0, completedTaskCount: Int = 0) {
+	init(model: Category) {
 		self.id = model.id
 		self.imagePath = model.imagePath
 		self.name = model.name
 		self.colorName = model.colorName
-		self.taskCount = taskCount
-		self.completedTaskCount = completedTaskCount
+		self.taskCount = model.tasksCount
+		self.completedTaskCount = model.completedTaskCount
 	}
 }
 
@@ -50,6 +50,8 @@ extension CategoryViewModel: MappingOutput {
 		return Category(id: id,
 					name: name,
 					imagePath: imagePath,
-					colorName: colorName)
+					colorName: colorName,
+					tasksCount: taskCount,
+					completedTaskCount: completedTaskCount)
 	}
 }

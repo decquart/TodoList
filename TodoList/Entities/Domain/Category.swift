@@ -14,18 +14,5 @@ struct Category: Decodable {
 	let imagePath: String
 	let colorName: String
 	let tasksCount: Int
-
-	init(id: String = UUID().uuidString, name: String, imagePath: String, colorName: String, subtasksCount: Int = 0) {
-		self.id = id
-		self.name = name
-		self.imagePath = imagePath
-		self.colorName = colorName
-		self.tasksCount = subtasksCount
-	}
-}
-
-extension Category: Hashable {
-	static func == (lhs: Category, rhs: Category) -> Bool {
-		return lhs.id == rhs.id
-	}
+	let completedTaskCount: Int
 }

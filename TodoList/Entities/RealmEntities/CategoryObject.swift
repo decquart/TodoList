@@ -27,11 +27,14 @@ class CategoryObject: Object {
 // MARK: - Mappable
 extension CategoryObject: Mappable {
 	var mapToModel: Category {
-		Category(id: id,
+		let completedCount = tasks.filter { $0.isCompleted }.count
+
+		return Category(id: id,
 			 name: name,
 			 imagePath: imagePath,
 			 colorName: colorName,
-			 subtasksCount: tasks.count)
+			 tasksCount: tasks.count,
+			 completedTaskCount: completedCount)
 	}
 
 	func map(_ entity: Category) {
