@@ -12,6 +12,7 @@ final class CDCategoryRepository: CDRepository<CategoryMO, Category> {
 	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Category], Error>) -> Void) {
 		let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
 		fetchRequest.predicate = predicate
+		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))]
 
 		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
 			let data = result.finalResult?.map { $0.mapToModel } ?? []
