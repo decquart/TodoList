@@ -27,8 +27,8 @@ final class LoginViewModel: NSObject {
 	let password = BehaviorSubject<String>(value: "")
 	let disposeBag = DisposeBag()
 
-	let didSignIn = PublishSubject<Void>()
-	let didSignUp = PublishSubject<Void>()
+	var onFinish: Completion?
+	var onRegister: Completion?
 
 	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
@@ -41,12 +41,12 @@ final class LoginViewModel: NSObject {
 		self.userSession = userSession
 	}
 
-	func skipTapped() {
+	func skipLogin() {
 		userSession.skipAuthorization()
-		didSignIn.onNext(())
+		onFinish?()
 	}
 
-	func signInTapped() {
+	func signIn() {
 		Observable.zip(username, password) {
 			return Credentials(name: $0, password: $1)
 		}
@@ -56,7 +56,7 @@ final class LoginViewModel: NSObject {
 		.observeOn(MainScheduler.instance)
 		.subscribe(onNext: { [weak self] success in
 			if success {
-				self?.didSignIn.onNext(())
+				self?.onFinish?()
 			}
 		}, onError: { [weak self] in
 			guard let error = $0 as? LoginError else { return }
@@ -77,12 +77,12 @@ final class LoginViewModel: NSObject {
 		.disposed(by: disposeBag)
 	}
 
-	func signInWithGoogleTapped() {
+	func signInWithGoogle() {
 		googleSignInService?.signIn()
 	}
 
-	func signUpTapped() {
-		didSignUp.onNext(())
+	func signUp() {
+		onRegister?()
 	}
 
 	func validateCredentials(_ credentials: Credentials) -> Observable<Bool> {
@@ -141,14 +141,14 @@ extension LoginViewModel: GIDSignInDelegate {
 		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(users) = result, users.first?.name == user.profile.name {
 				self?.userSession.logIn(user.profile.name)
-				self?.didSignIn.onNext(())
+				self?.onFinish?()
 				return
 			}
 
 			self?.repository.add(user.profile.mapToModel) { [weak self] success in
 				if success {
 					self?.userSession.logIn(user.profile.name)
-					self?.didSignIn.onNext(())
+					self?.onFinish?()
 				}
 			}
 		}

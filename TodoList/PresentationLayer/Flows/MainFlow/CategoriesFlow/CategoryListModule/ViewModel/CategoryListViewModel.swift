@@ -17,10 +17,10 @@ final class CategoryListViewModel {
 	let categoryModels = PublishSubject<[CategoryViewModel]>()
 
 	let onSelectIndexPath = PublishSubject<IndexPath>()
-	let onSelectCategory = PublishSubject<Category>()
-
 	let onEditIndex = PublishSubject<Int>()
-	let onEditCategory = PublishSubject<Scope<CategoryViewModel>>()
+
+	var onShowCategoryDetails: ScopeCategoryHandler?
+	var onPresent: TaskHandler?
 
 	let disposeBag = DisposeBag()
 
@@ -41,14 +41,14 @@ final class CategoryListViewModel {
 				return models[index]
 			}
 			.subscribe(onNext: { [weak self] in
-				self?.onEditCategory.onNext(.edit(model: $0))
+				self?.onShowCategoryDetails?(.edit(model: $0))
 			})
 			.disposed(by: disposeBag)
 
 		onSelectIndexPath
 			.subscribe(onNext: { [weak self] in
 				guard let category = self?.categories[$0.row] else { return }
-				self?.onSelectCategory.onNext(category)
+				self?.onPresent?(category)
 			})
 			.disposed(by: disposeBag)
 	}

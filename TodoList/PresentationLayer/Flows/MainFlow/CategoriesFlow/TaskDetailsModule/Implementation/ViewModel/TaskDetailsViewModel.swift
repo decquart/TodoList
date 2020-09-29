@@ -18,9 +18,10 @@ final class TaskDetailsViewModel {
 
 	let taskSubject = BehaviorSubject<String>(value: "")
 	let dateSubject = BehaviorSubject<Date>(value: Date())
-
 	let onPersistTask = PublishSubject<Void>()
-	let onDismiss = PublishSubject<Void>()
+
+	var onAddTask: Completion?
+	var onDismiss: Completion?
 
 	let isValidSendButton = BehaviorSubject<Bool>(value: false)
 
@@ -31,6 +32,12 @@ final class TaskDetailsViewModel {
 		taskSubject
 			.subscribe(onNext: { [weak self] in
 				self?.isValidSendButton.onNext(!$0.isEmpty)
+			})
+			.disposed(by: disposeBag)
+
+		onPersistTask
+			.subscribe(onNext: { [weak self] in
+				self?.onAddTask?()
 			})
 			.disposed(by: disposeBag)
 	}
@@ -74,7 +81,7 @@ final class TaskDetailsViewModel {
 		repository.update(task) { [weak self] success in
 			if success {
 				self?.onPersistTask.onNext(())
-				self?.onDismiss.onNext(())
+				self?.onDismiss?()
 			}
 		}
 	}

@@ -25,7 +25,6 @@ final class RegistrationViewModel {
 
 	let disposeBag = DisposeBag()
 
-	let onBack = PublishSubject<Void>()
 	let didSignup = PublishSubject<Void>()
 
 	let nameSubject = BehaviorSubject(value: "")
@@ -37,6 +36,8 @@ final class RegistrationViewModel {
 	let onEmailError = PublishSubject<String>()
 
 	let onShowAlert = PublishSubject<String>()
+
+	var onBack: Completion?
 
 	init(repository: AnyRepository<User>, keychain: KeychainProtocol) {
 		self.repository = repository
@@ -58,7 +59,6 @@ final class RegistrationViewModel {
 		}
 		.subscribe(onNext: { [weak self] in
 			self?.onShowAlert.onNext("User successfully saved")
-			self?.onBack.onNext(())
 		}, onError: { [weak self] in
 			guard let self = self, let error = $0 as? RegistrationError else { return }
 
@@ -81,7 +81,7 @@ final class RegistrationViewModel {
 	}
 
 	func backTapped() {
-		onBack.onNext(())
+		onBack?()
 	}
 }
 

@@ -17,19 +17,9 @@ final class CategoryListModule {
 		let taskRepository = CDTaskRepository(coreDataStack: coreDataStack)
 		let viewModel = CategoryListViewModel(categoryRepository: categoryRepository, taskRepository: taskRepository)
 
-		viewModel.onEditCategory
-			.subscribe(onNext: {
-				onShowCategoryDetails?($0)
-			})
-			.disposed(by: viewModel.disposeBag)
-
-		viewModel.onSelectCategory
-			.subscribe(onNext: {
-				onPresent?($0)
-			})
-			.disposed(by: viewModel.disposeBag)
-
 		view.viewModel = viewModel
+		viewModel.onShowCategoryDetails = onShowCategoryDetails
+		viewModel.onPresent = onPresent
 
 		return view
 	}

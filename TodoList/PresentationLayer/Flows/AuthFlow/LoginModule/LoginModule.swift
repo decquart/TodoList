@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginModule {
-	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
+	func build(onFinish: Completion?, onRegister: Completion?) -> UIViewController {
 
 		let view = LoginViewController.instantiate(storyboard: .login)
 		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
@@ -17,23 +17,13 @@ class LoginModule {
 									   keychain: Keychain(),
 									   userSession: UserSession.default)
 
-		viewModel.didSignIn
-			.subscribe(onNext: {
-				onFinish?()
-			})
-			.disposed(by: viewModel.disposeBag)
-
-		viewModel.didSignUp
-			.subscribe(onNext: {
-				onRegister?()
-			})
-			.disposed(by: viewModel.disposeBag)
-
 		let googleSignInService = GoogleSignInService.shared
 		googleSignInService.configure(with: view, and: viewModel)
 
 		view.viewModel = viewModel
 		viewModel.googleSignInService = googleSignInService
+		viewModel.onFinish = onFinish
+		viewModel.onRegister = onRegister
 
 		return view
 	}

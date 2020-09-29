@@ -24,7 +24,8 @@ final class SettingsViewModel {
 
 	let onSelectIndexPath = PublishSubject<IndexPath>()
 
-	let didLogOut = PublishSubject<Void>()
+//	let didLogOut = PublishSubject<Void>()
+	var onLogOut: Completion?
 	let onSelectPhotoCell = PublishSubject<Void>()
 
 	var onTheme: ((Completion?) -> Void)?
@@ -118,7 +119,7 @@ final class SettingsViewModel {
 		case .icon(_, let type):
 			if type == .logOut {
 				session.logOut()
-				didLogOut.onNext(())
+				onLogOut?()
 			}
 		case .color:
 			onTheme?{ [weak self] in

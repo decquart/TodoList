@@ -16,18 +16,8 @@ final class TaskDetailsModule {
 		let viewModel = TaskDetailsViewModel(repository: repository, scope: scope)
 
 		view.viewModel = viewModel
-
-		viewModel.onDismiss
-			.subscribe(onNext: {
-				onDismiss?()
-			})
-			.disposed(by: viewModel.disposeBag)
-
-		viewModel.onPersistTask
-			.subscribe(onNext: {
-				onAddTask?()
-			})
-			.disposed(by: viewModel.disposeBag)
+		viewModel.onDismiss = onDismiss
+		viewModel.onAddTask = onAddTask
 
 		return view
 	}

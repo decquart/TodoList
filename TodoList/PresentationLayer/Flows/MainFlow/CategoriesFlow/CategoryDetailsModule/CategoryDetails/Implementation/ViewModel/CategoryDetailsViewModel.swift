@@ -21,9 +21,9 @@ final class CategoryDetailsViewModel {
 	let selectedColor = BehaviorSubject<Color>(value: Color.customBlue)
 	let categoryName = BehaviorSubject<String>(value: "")
 
-	let onDismiss = PublishSubject<Void>()
 	let isValidSaveButton = BehaviorSubject<Bool>(value: false)
 
+	var onDismiss: Completion?
 
 	init(repository: AnyRepository<Category>, scope: Scope<CategoryViewModel>) {
 		self.repository = repository
@@ -77,7 +77,7 @@ final class CategoryDetailsViewModel {
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { [weak self] success in
 				if success {
-					self?.onDismiss.onNext(())
+					self?.onDismiss?()
 				}
 			})
 			.disposed(by: disposeBag)

@@ -9,7 +9,7 @@
 import UIKit
 
 final class CategoryDetailsModule {
-	func build(scope: Scope<CategoryViewModel>, onDismiss: (() -> Void)?) -> UIViewController {
+	func build(scope: Scope<CategoryViewModel>, onDismiss: Completion?) -> UIViewController {
 		let view = CategoryDetailsViewController.instantiate(storyboard: .categoryDetails)
 		let repository = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let viewModel = CategoryDetailsViewModel(repository: repository, scope: scope)
@@ -21,11 +21,7 @@ final class CategoryDetailsModule {
 		view.colorPickerView = colorsSubview
 		view.iconPickerView = iconsSubview
 
-		viewModel.onDismiss
-			.subscribe(onNext: {
-				onDismiss?()
-			})
-			.disposed(by: viewModel.disposeBag)
+		viewModel.onDismiss = onDismiss
 
 		iconsSubview.didSelectImageName
 			.subscribe(onNext: {

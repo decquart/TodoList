@@ -46,7 +46,7 @@ class CategoryListViewController: UIViewController {
 	func setupBindings() {
 		addButton.rx.tap
 			.subscribe(onNext: { [weak self] in
-				self?.viewModel.onEditCategory.onNext(.create)
+				self?.viewModel.onShowCategoryDetails?(.create)
 			})
 			.disposed(by: disposeBag)
 

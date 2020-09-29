@@ -85,19 +85,19 @@ class LoginViewController: UIViewController {
 
 	func setupBindings() {
 		loginButton.rx.tap
-			.bind { [weak self] in self?.viewModel.signInTapped() }
+			.bind { [weak self] in self?.viewModel.signIn() }
 			.disposed(by: disposeBag)
 
 		signInWithGoogleButton.rx.tap
-			.bind { [weak self] in self?.viewModel.signInWithGoogleTapped() }
+			.bind { [weak self] in self?.viewModel.signInWithGoogle() }
 			.disposed(by: disposeBag)
 
 		skipButton.rx.tap
-			.bind { [weak self] in self?.viewModel.skipTapped() }
+			.bind { [weak self] in self?.viewModel.skipLogin() }
 			.disposed(by: disposeBag)
 
 		signUpButton.rx.tap
-			.bind { [weak self] in self?.viewModel.signUpTapped() }
+			.bind { [weak self] in self?.viewModel.signUp() }
 			.disposed(by: disposeBag)
 
 		usernameTextField.rx.text.orEmpty

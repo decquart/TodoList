@@ -18,12 +18,7 @@ class SettingsModule {
 
 		view.viewModel = viewModel
 		viewModel.onTheme = onTheme
-
-		viewModel.didLogOut
-			.subscribe(onNext: {
-				onLogOut?()
-			})
-			.disposed(by: viewModel.disposeBag)
+		viewModel.onLogOut = onLogOut
 
 		return view
 	}
