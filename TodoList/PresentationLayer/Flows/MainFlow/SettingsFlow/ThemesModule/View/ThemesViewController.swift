@@ -44,7 +44,7 @@ class ThemesViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		closeButton.rx.tap
-			.bind { [weak self] in self?.viewModel.onDismiss.onNext(()) }
+			.bind { [weak self] in self?.viewModel.onDismiss?() }
 			.disposed(by: disposeBag)
 	}
 }

@@ -25,7 +25,7 @@ final class CategoryDetailsViewModel {
 
 	var onDismiss: Completion?
 
-	init(repository: AnyRepository<Category>, scope: Scope<CategoryViewModel>) {
+	init(repository: AnyRepository<Category>, scope: Scope<CategoryViewModel>, didSelectImageName:  PublishSubject<String>, onSelectColor: BehaviorSubject<Color>) {
 		self.repository = repository
 		self.scope = scope
 
@@ -34,6 +34,19 @@ final class CategoryDetailsViewModel {
 				self?.isValidSaveButton.onNext(!$0.isEmpty)
 			})
 			.disposed(by: disposeBag)
+
+		didSelectImageName
+			.subscribe(onNext: { [weak self] in
+				self?.selectedImage.onNext($0)
+			})
+			.disposed(by: disposeBag)
+
+		onSelectColor
+			.subscribe(onNext: { [weak self] in
+				self?.selectedColor.onNext($0)
+			})
+			.disposed(by: disposeBag)
+
 	}
 
 	func initAppearance() {

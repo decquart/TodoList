@@ -17,11 +17,18 @@ final class ThemesViewModel {
 	let selectedColor = BehaviorSubject<Color>(value: .customBlue)
 
 	let didApplyColor = PublishSubject<Color>()
-	let onDismiss = PublishSubject<Void>()
+
+	var onDismiss: Completion?
+	var onApplyColor: Completion?
 	
-	init(themeService: ThemeServiceProtocol) {
+	init(themeService: ThemeServiceProtocol, onSelectColor: BehaviorSubject<Color>) {
 		self.themeService = themeService
 
+		onSelectColor
+			.subscribe(onNext: { [weak self] in
+				self?.selectedColor.onNext($0)
+			})
+			.disposed(by: disposeBag)
 	}
 
 	func viewDodLoad() {
@@ -33,8 +40,8 @@ final class ThemesViewModel {
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { [weak self] in
 				self?.themeService.applicationColor = $0
-				self?.didApplyColor.onNext($0)
-				self?.onDismiss.onNext(())
+				self?.onApplyColor?()
+				self?.onDismiss?()
 			})
 			.disposed(by: disposeBag)
 	}
